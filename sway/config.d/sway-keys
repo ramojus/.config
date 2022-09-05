@@ -1,0 +1,81 @@
+bindsym $mod+Control+q kill
+floating_modifier $mod normal
+bindsym $mod+Control+c reload
+bindsym $mod+Control+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+bindsym $mod+y move left 80px
+bindsym $mod+u move down 80px
+bindsym $mod+i move up 80px
+bindsym $mod+o move right 80px
+bindsym $mod+shift+y move left 10px
+bindsym $mod+shift+u move down 10px
+bindsym $mod+shift+i move up 10px
+bindsym $mod+shift+o move right 10px
+
+bindsym $mod+Control+$left resize shrink width 20px
+bindsym $mod+Control+$down resize grow height 20px
+bindsym $mod+Control+$up resize shrink height 20px
+bindsym $mod+Control+$right resize grow width 20px
+
+bindsym $mod+Control+b resize set 880 1000
+bindsym $mod+n resize set width 650px
+
+set $trans 0.88
+set $alphamark "α"
+for_window [con_mark=$alphamark] opacity set $trans
+bindsym $mod+$alt+o mark --toggle "$alphamark" ; [con_id=__focused__] opacity set 1 ; [con_mark=$alphamark con_id=__focused__] opacity set $trans
+
+bindsym --whole-window $mod+button4 opacity plus 0.02
+bindsym --whole-window $mod+button5 opacity minus 0.02
+
+# Workspaces:
+bindcode {
+    # Switch to workspace
+    $mod+24 workspace 1
+    $mod+25 workspace 2
+    $mod+26 workspace 3
+    $mod+27 workspace 4
+    $mod+28 workspace 5
+    $mod+10 workspace 6
+    $mod+11 workspace 7
+    $mod+12 workspace 8
+    $mod+13 workspace 9
+    $mod+14 workspace 10
+    
+    # Move focused container to workspace
+    $mod+Shift+24 move container to workspace 1
+    $mod+Shift+25 move container to workspace 2
+    $mod+Shift+26 move container to workspace 3
+    $mod+Shift+27 move container to workspace 4
+    $mod+Shift+28 move container to workspace 5
+    $mod+Shift+10 move container to workspace 6
+    $mod+Shift+11 move container to workspace 7
+    $mod+Shift+12 move container to workspace 8
+    $mod+Shift+13 move container to workspace 9
+    $mod+Shift+14 move container to workspace 10
+}
+
+# Layout:
+bindsym $mod+b splith
+bindsym $mod+v splitv
+
+bindsym $mod+Control+e layout tabbed
+bindsym $mod+s layout toggle tabbed stacking split
+
+bindsym $mod+f fullscreen
+bindsym $mod+c move position center
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+Control+S sticky toggle
+
+# bindsym $mod+Shift+space focus mode_toggle
+bindsym $mod+a focus parent
+
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+

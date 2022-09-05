@@ -1,0 +1,17 @@
+*
+!foot/
+!foot/**
+!nvim/
+!nvim/**
+!sway/
+!sway/**
+!tmux/
+!tmux/**
+!waybar/
+!waybar/**
+!zsh/
+!zsh/**
+zsh/zsh-syntax-highlighting/
+!mako/
+!mako/**
+!.gitignore

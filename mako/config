@@ -1,0 +1,11 @@
+font=Roboto 10
+default-timeout=5000
+
+[summary=Volume]
+format=<b>%s</b>
+group-by=summary
+
+[summary=Brightness]
+format=<b>%s</b>
+group-by=summary
+

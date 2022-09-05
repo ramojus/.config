@@ -1,0 +1,51 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "monospace";
+    font-size: 12px;
+    min-height: 20px;
+}
+
+
+window#waybar {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    text-shadow: none;
+    transition-duration: 0s;
+    color: white;
+    background: #b8b8b8
+}
+
+
+#clock,
+#battery {
+    margin: 0px 8px 0px 16px;
+    color: #0f0f0f;
+}
+
+#workspaces button {
+    padding: 0 2px;
+    background-color: transparent;
+    color: #0f0f0f;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+#workspaces button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
+    background: rgba(40, 40, 40, 0.2)
+}
+
+#workspaces button.focused {
+    color: #111111;
+    background-color: #8f875f;
+    /* background-color: #888888; */
+}
+
+#workspaces button.urgent {
+    background-color: #aa8888;
+    color: black;
+}
+
+

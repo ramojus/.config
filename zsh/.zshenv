@@ -1,1 +1,1 @@
-. "/home/ramojus/.local/share/cargo/env"
+# . "/home/ramojus/.local/share/cargo/env"

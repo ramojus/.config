@@ -7,7 +7,8 @@ local servers = {
     "sqls",
     "rust_analyzer",
     "texlab",
-    "eslint"
+    "eslint",
+    "julials"
 }
 
 require 'mason'.setup();

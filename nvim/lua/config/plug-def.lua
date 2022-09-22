@@ -34,19 +34,19 @@ return packer.startup(function(use)
     -- use 'savq/melange'
     -- use 'wadackel/vim-dogrun'
     -- use 'ishan9299/modus-theme-vim'
-    use { 'rktjmp/lush.nvim', cmd = { "Lushify", "LushRunTutorial" } }
+    use { 'rktjmp/lush.nvim' }
     use {
         "mcchrish/zenbones.nvim",
         requires = "rktjmp/lush.nvim"
     }
     use {
-        -- '~/code/builds/meliora/neovim',
-        'meliora-theme/neovim',
+        '~/dev/meliora/neovim',
+        -- 'meliora-theme/neovim',
         config = function()
-            require 'meliora'.setup({
-                neutral = false,
-                dim_inactive = true
-            })
+            require 'meliora'.setup {
+                dim_inactive = true,
+                neutral = true
+            }
             vim.opt.background = "dark"
             -- vim.cmd("colorscheme meliora")
         end
@@ -174,7 +174,13 @@ return packer.startup(function(use)
         end,
     }
     use 'mhinz/vim-startify'
-    use 'junegunn/goyo.vim'
+    use {
+        "Pocco81/true-zen.nvim",
+        ft = {"markdown"},
+        config = function()
+             require 'config.plugins.true-zen'
+        end,
+    }
 
     use { 'ThePrimeagen/vim-be-good', cmd = "VimBeGood" }
     use 'ThePrimeagen/harpoon'

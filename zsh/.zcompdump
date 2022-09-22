@@ -1,4 +1,4 @@
-#files: 980	version: 5.8.1
+#files: 970	version: 5.8.1
 
 _comps=(
 '-' '_precommand'
@@ -502,8 +502,6 @@ _comps=(
 'ggetopt' '_getopt'
 'ggrep' '_grep'
 'ggv' '_gnome-gv'
-'_gh' '_gh'
-'gh' '_gh'
 'ghead' '_head'
 'ghostscript' '_ghostscript'
 'ghostview' '_pspdf'
@@ -830,8 +828,6 @@ _comps=(
 'makeinfo' '_texinfo'
 'make-kpkg' '_make-kpkg'
 'makepkg' '_pkgtool'
-'mako' '_mako'
-'makoctl' '_makoctl'
 'man' '_man'
 'manage.py' '_django'
 'manila' '_openstack'
@@ -962,7 +958,6 @@ _comps=(
 'nmap' '_nmap'
 'nmblookup' '_samba'
 'nmcli' '_networkmanager'
-'nnn' '_nnn'
 'nocorrect' '_precommand'
 'noglob' '_precommand'
 'nohup' '_precommand'
@@ -1362,10 +1357,6 @@ _comps=(
 'svnlite' '_subversion'
 'swaks' '_swaks'
 'swanctl' '_swanctl'
-'sway' '_sway'
-'swayidle' '_swayidle'
-'swaylock' '_swaylock'
-'swaymsg' '_swaymsg'
 'swift' '_swift'
 'swiftc' '_swift'
 'sw_vers' '_sw_vers'
@@ -1424,7 +1415,6 @@ _comps=(
 'tkconch' '_twisted'
 'tkinfo' '_texinfo'
 'tla' '_tla'
-'tldr' '_tldr'
 'tload' '_tload'
 'tmux' '_tmux'
 'todo' '_devtodo'
@@ -1850,14 +1840,12 @@ bindkey '^[~' _bash_complete-word
 
 autoload -Uz _bluetoothctl _bootctl _busctl _bwrap _catimg \
             _coredumpctl _curl _firewalld _flatpak _foot \
-            _footclient _gh _hostnamectl _journalctl _kdeconnect \
-            _kernel-install _libinput _localectl _loginctl _machinectl \
-            _mako _makoctl _mercurial _mpv _networkctl \
-            _nnn _podman _resolvectl _sd_hosts_or_user_at_host _sd_machines \
-            _sd_outputmodes _sd_unit_files _sway _swayidle _swaylock \
-            _swaymsg _systemctl _systemd _systemd-analyze _systemd-delta \
-            _systemd-inhibit _systemd-nspawn _systemd-path _systemd-run _systemd-tmpfiles \
-            _timedatectl _tldr _udevadm _wl-copy _wl-paste \
+            _footclient _hostnamectl _journalctl _kernel-install _libinput \
+            _localectl _loginctl _machinectl _mercurial _mpv \
+            _networkctl _podman _resolvectl _sd_hosts_or_user_at_host _sd_machines \
+            _sd_outputmodes _sd_unit_files _systemctl _systemd _systemd-analyze \
+            _systemd-delta _systemd-inhibit _systemd-nspawn _systemd-path _systemd-run \
+            _systemd-tmpfiles _timedatectl _udevadm _wl-copy _wl-paste \
             _yt-dlp _a2ps _a2utils _aap _abcde \
             _absolute_command_paths _ack _acpi _acpitool _acroread \
             _adb _add-zle-hook-widget _add-zsh-hook _alias _aliases \

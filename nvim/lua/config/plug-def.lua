@@ -40,8 +40,8 @@ return packer.startup(function(use)
         requires = "rktjmp/lush.nvim"
     }
     use {
-        '~/dev/meliora/neovim',
-        -- 'meliora-theme/neovim',
+        -- '~/dev/meliora/neovim',
+        'meliora-theme/neovim',
         config = function()
             require 'meliora'.setup {
                 dim_inactive = true,

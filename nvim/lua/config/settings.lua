@@ -69,13 +69,6 @@ vim.opt.guifont = "SauceCodePro NF:h10"
 -- don't auto comment new lines
 cmd [[au BufEnter * set fo-=cro]]
 
--- highlight on yank
--- cmd ([[
---   augroup YankHighlight
---     autocmd!
---     autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup = "Visual", timeout=200}
---   augroup end
--- ]], false)
 local yankGrp = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {
   command = [[silent! lua vim.highlight.on_yank{higroup = "Visual"}]],
@@ -84,4 +77,5 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- Find makefile if it is in parrent directory
 cmd "let &makeprg = 'if [ -f Makefile ]; then make; else make -C ..; fi'"
+
 

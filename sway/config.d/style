@@ -34,7 +34,8 @@ exec_always {
     gsettings set $gnome-schema icon-theme 'Adwaita'
     gsettings set $gnome-schema cursor-theme '$cursor'
     gsettings set $gnome-schema cursor-size $cursor_size
-    gsettings set $gnome-schema font-name 'Ubuntu'
+    gsettings set $gnome-schema font-name 'Source Sans Pro, 11'
+    gsettings set $gnome-schema text-scaling-factor 1.1
 }
 
 smart_gaps on

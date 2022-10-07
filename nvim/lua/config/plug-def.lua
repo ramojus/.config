@@ -68,6 +68,13 @@ return packer.startup(function(use)
     use { "williamboman/mason-lspconfig.nvim" }
     use 'jose-elias-alvarez/null-ls.nvim'
     use { 'simrat39/rust-tools.nvim', ft = { "rust" } }
+    -- use {
+    --     'kdheepak/JuliaFormatter.vim',
+    --     ft = { "julia" },
+    --     config = function()
+    --         vim.api.nvim_buf_set_keymap("n", "<leader>lf", ":JuliaFormatterFormat")
+    --     end
+    -- }
     use {
         'j-hui/fidget.nvim',
         config = function()
@@ -174,13 +181,13 @@ return packer.startup(function(use)
         end,
     }
     use 'mhinz/vim-startify'
-    use {
-        "Pocco81/true-zen.nvim",
-        ft = {"markdown"},
-        config = function()
-             require 'config.plugins.true-zen'
-        end,
-    }
+    -- use {
+    --     "Pocco81/true-zen.nvim",
+    --     ft = {"markdown"},
+    --     config = function()
+    --          require 'config.plugins.true-zen'
+    --     end,
+    -- }
 
     use { 'ThePrimeagen/vim-be-good', cmd = "VimBeGood" }
     use 'ThePrimeagen/harpoon'

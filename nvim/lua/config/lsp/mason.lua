@@ -4,11 +4,11 @@ local servers = {
     "html",
     "sumneko_lua",
     "pyright",
-    "sqls",
     "rust_analyzer",
     "texlab",
     "eslint",
-    "julials"
+    "julials",
+    "gopls",
 }
 
 require 'mason'.setup();

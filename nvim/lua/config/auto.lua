@@ -36,6 +36,15 @@ create_autocmd(
     }
 )
 
+create_autocmd(
+    "PrologHighlight",
+    "BufEnter",
+    {
+        pattern = "*.pl",
+        command = "setlocal filetype=prolog"
+    }
+)
+
 -- vim.cmd [[
 --     " C-C++
 --     au BufNewFile,BufRead *.h++ :set filetype=cpp

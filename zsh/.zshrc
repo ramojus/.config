@@ -58,9 +58,12 @@ path+=('/home/ramojus/.local/bin')
 path+=('/home/ramojus/.local/bin/lsp')
 path+=('/home/ramojus/.local/bin/statusbar')
 path+=('/home/ramojus/.emacs.d/bin')
+path+=('/home/ramojus/.local/share/go/bin')
 export PATH
 
-alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias mpv="flatpak run io.mpv.Mpv"
+alias tmux="./appimages/tmux.appimage"
+alias ls="ls --color=always"
 # alias rm=trash
 
 # Load aliases and shortcuts if existent.

@@ -62,7 +62,7 @@ path+=('/home/ramojus/.local/share/go/bin')
 export PATH
 
 alias mpv="flatpak run io.mpv.Mpv"
-alias tmux="./appimages/tmux.appimage"
+# alias tmux="./appimages/tmux.appimage"
 alias ls="ls --color=always"
 # alias rm=trash
 
@@ -137,4 +137,20 @@ bindkey '^[[P' delete-char
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/ramojus/mambaforge/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/ramojus/mambaforge/etc/profile.d/conda.sh" ]; then
+        . "/home/ramojus/mambaforge/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/ramojus/mambaforge/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 

@@ -21,7 +21,7 @@ local M = {}
 function M.init(theme)
     -- vim.g.theme_name = theme
     -- vim.cmd("colorscheme flow_moody")
-    vim.cmd("colorscheme " .. theme)
+    -- vim.cmd("colorscheme " .. theme)
     -- require 'config.colors.themer'
     -- require 'config.colors.themer-highlights'
 end

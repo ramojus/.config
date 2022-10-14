@@ -5,7 +5,7 @@
 -- ]]
 
 require("indent_blankline").setup {
-    char = "│",
+    char = "▏",
     use_treesitter = true,
     show_current_context = true,
     buftype_exclude = {"terminal"},

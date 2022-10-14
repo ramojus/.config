@@ -40,15 +40,10 @@ return packer.startup(function(use)
         requires = "rktjmp/lush.nvim"
     }
     use {
-        -- '~/dev/meliora/neovim',
-        'meliora-theme/neovim',
+        '~/dev/meliora/neovim',
+        -- 'meliora-theme/neovim',
         config = function()
-            require 'meliora'.setup {
-                dim_inactive = true,
-                neutral = true
-            }
-            vim.opt.background = "dark"
-            -- vim.cmd("colorscheme meliora")
+            require 'config.plugins.meliora'
         end
     }
     use 'catppuccin/nvim'

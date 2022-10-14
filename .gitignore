@@ -16,4 +16,6 @@ zsh/zsh-syntax-highlighting/
 !mako/**
 !shell/
 !shell/**
+!alacritty/
+!alacritty/**
 !.gitignore

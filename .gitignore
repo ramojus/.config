@@ -19,3 +19,4 @@ zsh/zsh-syntax-highlighting/
 !alacritty/
 !alacritty/**
 !.gitignore
+!git

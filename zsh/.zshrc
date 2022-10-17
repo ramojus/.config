@@ -59,12 +59,14 @@ path+=('/home/ramojus/.local/bin/lsp')
 path+=('/home/ramojus/.local/bin/statusbar')
 path+=('/home/ramojus/.emacs.d/bin')
 path+=('/home/ramojus/.local/share/go/bin')
+path+=('/home/ramojus/.local/share/cargo/env')
 export PATH
 
 alias mpv="flatpak run io.mpv.Mpv"
-# alias tmux="./appimages/tmux.appimage"
+alias tmux="~/./appimages/tmux.appimage"
 alias ls="ls --color=always"
 # alias rm=trash
+alias git-bare="git --git-dir=./.git-bare/ --work-tree=."
 
 # Load aliases and shortcuts if existent.
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc"

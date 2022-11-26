@@ -18,5 +18,7 @@ zsh/zsh-syntax-highlighting/
 !shell/**
 !alacritty/
 !alacritty/**
+!darkman/
+!darkman/**
 !.gitignore
 !git

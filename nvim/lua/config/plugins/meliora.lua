@@ -1,8 +1,11 @@
 require 'meliora'.setup {
-    dim_inactive = false,
-    neutral = true,
-    transparent_background = { enabled = false }
+    -- dim_inactive = true,
+    -- neutral = true,
+    transparent_background = {
+        enabled = false,
+    }
 }
-vim.cmd('colorscheme meliora')
 vim.opt.background = "dark"
+vim.cmd('colorscheme meliora')
+
 

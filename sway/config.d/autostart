@@ -1,5 +1,5 @@
 exec mako &
-exec_always kanshi &
+# exec_always kanshi &
 exec wlsunset -l 54.7 -L 25.3 &
 exec bluetoothctl power on
 exec dex --autostart & # launch desktop autostart entries (/run/current/system/sw/etc/xdg/autostart/)

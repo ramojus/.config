@@ -30,6 +30,7 @@ zstyle ':vcs_info:*' enable git
 
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .config/BraveSoftware'
 export _JAVA_AWT_WM_NONREPARENTING=1 # for java applications to work in wm. (logisim in particular)
+export RUSTC_WRAPPER=sccache
 # export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on' # for font anti-aliasing in java applications
 
 PROMPT+="%(?:%{$fg_bold[green]%} > %{$reset_color%}:%{$fg_bold[red]%} > %{$reset_color%})"
@@ -60,10 +61,14 @@ path+=('/home/ramojus/.local/bin/statusbar')
 path+=('/home/ramojus/.emacs.d/bin')
 path+=('/home/ramojus/.local/share/go/bin')
 path+=('/home/ramojus/.local/share/cargo/env')
+source '/home/ramojus/.local/share/cargo/env' # theoretically shouldn't be needed.
 export PATH
 
-alias mpv="flatpak run io.mpv.Mpv"
-alias tmux="~/./appimages/tmux.appimage"
+# alias mpv="flatpak run io.mpv.Mpv"
+
+distro=$(cat /etc/os-release | grep ^ID= | cut -d\" -f2 | cut -d= -f2)
+[[ $distro != "fedora" ]] && alias tmux="~/./appimages/tmux.appimage"
+
 alias ls="ls --color=always"
 # alias rm=trash
 alias git-bare="git --git-dir=./.git-bare/ --work-tree=."

@@ -4,7 +4,7 @@ vim.g.mapleader = ' '
 pcall(require, "impatient")
 
 -- require('config.functions')
-require('config.plug-def')
+ require('config.plug-def')
 require('config.settings')
 require('config.keys')
 require('config.lsp')
@@ -16,3 +16,4 @@ require('config.utils')
 -- require('config.colors').init("meliora")
 -- require('config.statusline')
 -- error(vim.g.colors_name)
+

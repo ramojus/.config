@@ -24,7 +24,8 @@ window#waybar {
     color: #0f0f0f;
 }
 
-#workspaces button {
+#workspaces button,
+#tags button {
     padding: 0 3px;
     background-color: transparent;
     font-weight: normal;
@@ -32,19 +33,22 @@ window#waybar {
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-#workspaces button:hover {
+#workspaces button:hover,
+#tags button:hover {
     box-shadow: inherit;
     text-shadow: inherit;
     background: rgba(40, 40, 40, 0.2)
 }
 
-#workspaces button.focused {
+#workspaces button.focused,
+#tags button.focused {
     color: #111111;
     background-color: #8f875f;
     /* background-color: #888888; */
 }
 
-#workspaces button.urgent {
+#workspaces button.urgent,
+#tags button.urgent {
     background-color: #aa8888;
     color: black;
 }

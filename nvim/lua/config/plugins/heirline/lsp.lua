@@ -13,10 +13,10 @@ return function(conditions)
         -- hl = { fg = "", bold = false },
     }
 
-    local navic = {
-        condition = require("nvim-navic").is_available,
-        provider = require("nvim-navic").get_location,
-    }
+    -- local navic = {
+    --     condition = require("nvim-navic").is_available,
+    --     provider = require("nvim-navic").get_location,
+    -- }
 
     local diagnostics = {
 
@@ -82,7 +82,7 @@ return function(conditions)
 
     return {
         server_name = server_name,
-        navic = navic,
+        -- navic = navic,
         diagnostics = diagnostics,
     }
 end

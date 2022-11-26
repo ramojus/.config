@@ -25,7 +25,7 @@ end
 return packer.startup(function(use)
     use 'wbthomason/packer.nvim'
 
-    -- use 'mountain-theme/vim'
+    use 'mountain-theme/vim'
     -- use 'Mofiqul/vscode.nvim'
     -- use 'NTBBloodbath/doom-one.nvim'
     -- use 'AlessandroYorba/Alduin' -- using modified alduin
@@ -40,7 +40,7 @@ return packer.startup(function(use)
         requires = "rktjmp/lush.nvim"
     }
     use {
-        '~/dev/meliora/neovim',
+        '~/dev/meliora.nvim',
         -- 'meliora-theme/neovim',
         config = function()
             require 'config.plugins.meliora'
@@ -63,34 +63,19 @@ return packer.startup(function(use)
     use { "williamboman/mason-lspconfig.nvim" }
     use 'jose-elias-alvarez/null-ls.nvim'
     use { 'simrat39/rust-tools.nvim', ft = { "rust" } }
-    -- use {
-    --     'kdheepak/JuliaFormatter.vim',
-    --     ft = { "julia" },
-    --     config = function()
-    --         vim.api.nvim_buf_set_keymap("n", "<leader>lf", ":JuliaFormatterFormat")
-    --     end
-    -- }
+    use {
+        'kdheepak/JuliaFormatter.vim',
+        ft = { "julia" },
+        config = function()
+            vim.api.nvim_buf_set_keymap("n", "<leader>lf", ":JuliaFormatterFormat")
+        end
+    }
     use {
         'j-hui/fidget.nvim',
         config = function()
             require 'fidget'.setup {}
         end,
     }
-    -- use {
-    --     'vigoux/notifier.nvim',
-    --     config = function()
-    --         require 'notifier'.setup {
-    --             components = { -- Order of the components to draw from top to bottom (first nvim notifications, then lsp)
-    --                 "nvim", -- Nvim notifications (vim.notify and such)
-    --                 -- "lsp"  -- LSP status updates
-    --             },
-    --             notify = {
-    --                 clear_time = 2000, -- Time in milisecond before removing a vim.notifiy notification, 0 to make them sticky
-    --                 min_level = vim.log.levels.INFO, -- Minimum log level to print the notification
-    --             },
-    --         }
-    --     end
-    -- }
     use { 'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu' }
     use {
         'lervag/vimtex',
@@ -103,6 +88,14 @@ return packer.startup(function(use)
         run = function() vim.fn['firenvim#install'](0) end,
         config = function()
             require 'config.plugins.firenvim'
+        end,
+    }
+    use {
+        'dccsillag/magma-nvim',
+        run = ':UpdateRemotePlugins',
+        -- event = "BufEnter *.sm",
+        config = function()
+            require 'config.plugins.magma'
         end,
     }
 
@@ -183,10 +176,10 @@ return packer.startup(function(use)
     --          require 'config.plugins.true-zen'
     --     end,
     -- }
-
+    
     use { 'ThePrimeagen/vim-be-good', cmd = "VimBeGood" }
     use 'ThePrimeagen/harpoon'
-
+    
     use 'kyazdani42/nvim-web-devicons'
     use {
         'windwp/nvim-autopairs',
@@ -218,7 +211,7 @@ return packer.startup(function(use)
             require 'config.plugins.heirline'
         end,
     }
-    use 'SmiteshP/nvim-navic'
+    -- use 'SmiteshP/nvim-navic'
     use {
         'lewis6991/gitsigns.nvim',
         config = function()

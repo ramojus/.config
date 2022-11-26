@@ -3,7 +3,7 @@ local opt = vim.opt
 
 cmd "filetype plugin indent on"
 
-opt.title = true
+opt.title = false
 opt.number = true
 opt.relativenumber = true
 opt.hlsearch = false
@@ -31,7 +31,7 @@ opt.imsearch=-1
 -- additional keybindings for lithunian keymap
 vim.api.nvim_set_keymap("l", "9", "„", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("l", "0", "“", {silent = true, noremap = true})
-vim.api.nvim_set_keymap("l", "--", "–", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("l", "<M-->", "–", {silent = true, noremap = true})
 -- save undo history
 opt.undofile = true
 vim.cmd([[

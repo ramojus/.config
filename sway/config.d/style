@@ -1,6 +1,7 @@
 output * bg ~/wallpapers/wallpaper.jpg fill
 # exec_always swaybg -m fill -o "*" -i ~/wallpapers/wallpaper.jpg
 
+corner_radius 8
 title_align left
 titlebar_border_thickness 0
 titlebar_padding 8 3

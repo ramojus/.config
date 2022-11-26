@@ -2,7 +2,7 @@
     "layer": "top",
     "modules-left": [
     	"sway/workspaces",
-    	"sway/mode"
+    	"sway/mode",
     ],
     "modules-center": ["clock"],
     "modules-right": ["battery"],

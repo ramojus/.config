@@ -28,7 +28,7 @@ for _, server in pairs(servers) do
         on_attach = require'config.lsp.on_attach',
         capabilities = vim.lsp.protocol.make_client_capabilities(),
     }
-    opts.capabilities = require('cmp_nvim_lsp').update_capabilities(opts.capabilities)
+    opts.capabilities = require('cmp_nvim_lsp').default_capabilities(opts.capabilities)
 
     if server == "sumneko_lua" then
         opts = vim.tbl_deep_extend("force", require'config.lsp.settings.lua', opts)

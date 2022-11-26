@@ -1,5 +1,5 @@
 bindsym $mod+shift+Return exec $term
-set $trans 0.88
+set $trans 0.92
 bindsym $mod+Return exec $term --o=colors.alpha=$trans
 bindsym $mod+alt+w exec $browser
 bindsym $mod+d exec $menu
@@ -7,11 +7,12 @@ bindsym $mod+$alt+f exec $term --o=colors.alpha=$trans -e nnn
 bindsym $mod+$alt+c exec $term --o=colors.alpha=$trans -e qalc
 bindsym $mod+$alt+n exec obsidian
 bindsym $mod+space exec ulauncher-toggle
+bindsym $mod+z exec sleep 0.2 && systemctl suspend
 
 mode "record" {
-    bindsym s exec swaymsg mode "recording" && ~/.local/bin/record
-    bindsym w exec swaymsg mode "recording" && ~/.local/bin/record window
-    bindsym r exec swaymsg mode "recording" && ~/.local/bin/record selection
+    bindsym s exec swaymsg mode "recording" && ~/.local/bin/scripts/record
+    bindsym w exec swaymsg mode "recording" && ~/.local/bin/scripts/record window
+    bindsym r exec swaymsg mode "recording" && ~/.local/bin/scripts/record selection
 
     bindsym Escape mode "default"
     bindsym $mod+Control+r mode "default"

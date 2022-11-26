@@ -42,9 +42,12 @@ local space = { provider = " " }
 
 file.meta = utils.surround({ "(", ")" }, nil, file.meta)
 
-git = utils.make_flexible_component(3, git, { provider = "" })
-lsp.server_name = utils.make_flexible_component(4, lsp.server_name, { provider = "" })
-file.meta = utils.make_flexible_component(5, file.meta, { provider = "" })
+-- git = utils.make_flexible_component(3, git, { provider = "" })
+-- lsp.server_name = utils.make_flexible_component(4, lsp.server_name, { provider = "" })
+-- file.meta = utils.make_flexible_component(5, file.meta, { provider = "" })
+git = { flexible = 3, git }
+lsp.server_name = { flexible = 4, lsp.server_name }
+file.meta = { flexible = 5, file.meta }
 
 local default_statusline = {
     mode, space , file.name_block, space, space, lsp.diagnostics, lsp.server_name --[[ lsp.navic, (waiting for winbar) ]], align,
@@ -59,19 +62,29 @@ local inactive_statusline = {
     align, file.name_block, align,
 }
 
-local statuslines = {
-    hl = function()
-        if conditions.is_active() then
-            return "StatusLine"
-        else
-            return "StatusLineNC"
-        end
-    end,
+local statuslines
 
-    fallthrough = false,
+if vim.opt.laststatus ~= 3 then
+    statuslines = {
+        hl = function()
+            if conditions.is_active() then
+                return "StatusLine"
+            else
+                return "StatusLineNC"
+            end
+        end,
 
-    default_statusline, inactive_statusline
-}
+        fallthrough = false,
+
+        default_statusline, inactive_statusline
+    }
+else
+    statuslines = {
+        hl = "StatusLine",
+        fallthrough = false,
+        default_statusline
+    }
+end
 
 heirline.setup(statuslines)
 

@@ -28,7 +28,7 @@ return function(utils)
         end,
         hl = { fg = "white" },
 
-        utils.make_flexible_component(6, {
+	{ flexible = 6, {
             provider = function(self)
                 return self.lfilename
             end,
@@ -36,7 +36,7 @@ return function(utils)
             provider = function(self)
                 return vim.fn.pathshorten(self.lfilename)
             end,
-        }),
+        }},
     }
 
     local flags = {

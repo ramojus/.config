@@ -1,6 +1,6 @@
-bindsym XF86AudioRaiseVolume exec ~/.local/bin/volume up
-bindsym XF86AudioLowerVolume exec ~/.local/bin/volume down
-bindsym XF86AudioMute exec ~/.local/bin/volume toggle
+bindsym XF86AudioRaiseVolume exec ~/.local/bin/scripts/volume up
+bindsym XF86AudioLowerVolume exec ~/.local/bin/scripts/volume down
+bindsym XF86AudioMute exec ~/.local/bin/scripts/volume toggle
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 bindsym XF86AudioPlay exec playerctl play-pause
@@ -8,20 +8,20 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+period exec playerctl next
 bindsym $mod+comma exec playerctl previous
-bindsym $mod+m exec ~/.local/bin/volume mic
+bindsym $mod+m exec ~/.local/bin/scripts/volume mic
 
-bindsym Print exec ~/.local/bin/screenshot selection clipboard
-bindsym $mod+Print exec ~/.local/bin/screenshot window clipboard
-bindsym shift+Print exec ~/.local/bin/screenshot screen clipboard
-bindsym $alt+Print exec ~/.local/bin/screenshot selection file
-bindsym $mod+$alt+Print exec ~/.local/bin/screenshot window file
-bindsym shift+$alt+Print exec ~/.local/bin/screenshot screen file
+bindsym Print exec ~/.local/bin/scripts/screenshot selection clipboard
+bindsym $mod+Print exec ~/.local/bin/scripts/screenshot window clipboard
+bindsym shift+Print exec ~/.local/bin/scripts/screenshot screen clipboard
+bindsym $alt+Print exec ~/.local/bin/scripts/screenshot selection file
+bindsym $mod+$alt+Print exec ~/.local/bin/scripts/screenshot window file
+bindsym shift+$alt+Print exec ~/.local/bin/scripts/screenshot screen file
 
 # for a dumb camera key on my mx keys mini
-bindsym $mod+shift+s exec ~/.local/bin/screenshot selection clipboard
-bindsym Control+$alt+shift+s exec ~/.local/bin/screenshot selection file
-bindsym $mod+$alt+shift+s exec ~/.local/bin/screenshot window clipboard
-bindsym $mod+Control+$alt+shift+s exec ~/.local/bin/screenshot window file
-bindsym $mod+shift+f exec ~/.local/bin/screenshot screen clipboard
-bindsym $mod+$alt+shift+f exec ~/.local/bin/screenshot screen file
+bindsym $mod+shift+s exec ~/.local/bin/scripts/screenshot selection clipboard
+bindsym Control+$mod+shift+s exec ~/.local/scripts/bin/screenshot selection file
+bindsym $mod+$alt+shift+s exec ~/.local/bin/scripts/screenshot window clipboard
+bindsym $mod+Control+$alt+shift+s exec ~/.local/scripts/bin/screenshot window file
+bindsym $mod+shift+f exec ~/.local/scripts/bin/screenshot screen clipboard
+bindsym $mod+$alt+shift+f exec ~/.local/scripts/bin/screenshot screen file
 

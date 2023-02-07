@@ -56,13 +56,15 @@ if ! [ -d ~/.cache/zsh/ ]; then
 fi
 
 path+=('/home/ramojus/.local/bin')
+path+=('/home/ramojus/.local/bin/scripts')
 path+=('/home/ramojus/.local/bin/lsp')
 path+=('/home/ramojus/.local/bin/statusbar')
 path+=('/home/ramojus/.emacs.d/bin')
 path+=('/home/ramojus/.local/share/go/bin')
-path+=('/home/ramojus/.local/share/cargo/env')
-source '/home/ramojus/.local/share/cargo/env' # theoretically shouldn't be needed.
 export PATH
+
+source '/home/ramojus/.ghcup/env'
+source '/home/ramojus/.local/share/cargo/env'
 
 # alias mpv="flatpak run io.mpv.Mpv"
 
@@ -70,7 +72,7 @@ distro=$(cat /etc/os-release | grep ^ID= | cut -d\" -f2 | cut -d= -f2)
 [[ $distro != "fedora" ]] && alias tmux="~/./appimages/tmux.appimage"
 
 alias ls="ls --color=always"
-# alias rm=trash
+alias rm=trash
 alias git-bare="git --git-dir=./.git-bare/ --work-tree=."
 
 # Load aliases and shortcuts if existent.
@@ -88,6 +90,8 @@ _comp_options+=(globdots)		# Include hidden files.
 # vi mode
 bindkey -v
 export KEYTIMEOUT=1
+
+bindkey '^r' history-incremental-search-backward
 
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char

@@ -1,31 +1,44 @@
 local function set_keymaps(bufnr)
-  local opts = { noremap = true, silent = true }
-  local set_keymap = vim.api.nvim_buf_set_keymap
-  set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  set_keymap(bufnr, 'n', 'gd', '<cmd>lua require("telescope.builtin").lsp_definitions()<CR>', opts)
-  set_keymap(bufnr, 'n', 'gi', '<cmd>lua require("telescope.builtin").lsp_implementations()<CR>', opts)
-  set_keymap(bufnr, 'n', 'gt', '<cmd>lua require("telescope.builtin").lsp_type_definitions()<CR>', opts)
+    local nmap = function(keys, func, desc)
+        if desc then
+            desc = 'LSP: ' .. desc
+        end
+        vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
+    end
+    local nvmap = function(keys, func, desc)
+        if desc then
+            desc = 'LSP: ' .. desc
+        end
+        vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
+        vim.keymap.set('v', keys, func, { buffer = bufnr, desc = desc })
+    end
 
-  set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  set_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+    nmap('gD', vim.lsp.buf.declaration)
+    nmap('gd', require("telescope.builtin").lsp_definitions)
+    nmap('gi', require("telescope.builtin").lsp_implementations)
+    nmap('gt', require("telescope.builtin").lsp_type_definitions)
+    nmap('gr', require("telescope.builtin").lsp_references)
+    nmap('<leader>sg', require('telescope.builtin').live_grep, '[S]earch by [G]rep')
 
-  set_keymap(bufnr, 'n', '<leader>laf', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-  set_keymap(bufnr, 'n', '<leader>ldf', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-  set_keymap(bufnr, 'n', '<leader>lgf', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-  set_keymap(bufnr, 'n', '<leader>lr', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  -- set_keymap(bufnr, 'n', '<leader>la', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  set_keymap(bufnr, 'n', '<leader>la', '<cmd>CodeActionMenu<CR>', opts)
-  set_keymap(bufnr, 'n', '<leader>ls', [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]], opts)
-  set_keymap(bufnr, 'n', '<leader>lf', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
-  set_keymap(bufnr, 'v', '<leader>lf', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
-  set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+    nmap('K', vim.lsp.buf.hover)
+    nmap('<C-k>', vim.lsp.buf.signature_help)
 
-  set_keymap(bufnr, 'n', '<leader>dn', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-  set_keymap(bufnr, 'n', '<leader>dp', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-  set_keymap(bufnr, 'n', '<leader>dl', '<cmd>Telescope diagnostics<CR>', opts)
+    nmap('<leader>lr', vim.lsp.buf.rename)
+    nmap('<leader>la', '<cmd>CodeActionMenu<CR>')
+    nmap('<leader>ls', require('telescope.builtin').lsp_document_symbols)
+    nvmap('<leader>lf', vim.lsp.buf.format)
 
-  set_keymap(bufnr, 'n', '<leader>R', [[:LspStop<CR>:LspStart<CR>]], opts)
+    nmap('<leader>lwa', vim.lsp.buf.add_workspace_folder)
+    nmap('<leader>lwr', vim.lsp.buf.remove_workspace_folder)
+    nmap('<leader>lwl', function()
+        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    end)
+
+    nmap('<leader>dn', vim.diagnostic.goto_next)
+    nmap('<leader>dp', vim.diagnostic.goto_prev)
+    nmap('<leader>dl', '<cmd>Telescope diagnostics<CR>')
+
+    nmap('<leader>R', [[:LspStop<CR>:LspStart<CR>]])
 end
 
 return set_keymaps
-

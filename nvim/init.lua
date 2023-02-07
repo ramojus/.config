@@ -1,10 +1,10 @@
 vim.api.nvim_set_keymap("", "<space>", "<Nop>", {})
 vim.g.mapleader = ' '
 
-pcall(require, "impatient")
+require("impatient")
 
 -- require('config.functions')
- require('config.plug-def')
+require('config.plug-def')
 require('config.settings')
 require('config.keys')
 require('config.lsp')

@@ -77,12 +77,14 @@ return {
     -- characters long. Plus a nice Icon.
     provider = function(self)
         return " %2("..self.mode_names[self.mode].."%) "
+        -- return " "
     end,
     -- Same goes for the highlight. Now the foreground will change according to the current mode.
-    hl = function(self)
-        local mode = self.mode:sub(1, 1) -- get only the first mode character
-        return { bg = self.mode_colors[mode], fg = "black", bold = false, }
-    end,
+    -- hl = function(self)
+    --     local mode = self.mode:sub(1, 1) -- get only the first mode character
+    --     -- return { bg = self.mode_colors[mode], fg = "black", bold = false, }
+    --     return { bg = "black", bold = false }
+    -- end,
     -- Re-evaluate the component only on ModeChanged event!
     -- This is not required in any way, but it's there, and it's a small
     -- performance improvement.

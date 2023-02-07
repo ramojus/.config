@@ -1,4 +1,4 @@
-#files: 1020	version: 5.9
+#files: 1025	version: 5.9
 
 _comps=(
 '-' '_precommand'
@@ -28,6 +28,7 @@ _comps=(
 'add-zle-hook-widget' '_add-zle-hook-widget'
 'add-zsh-hook' '_add-zsh-hook'
 'admin' '_sccs'
+'alacritty' '_alacritty'
 'ali' '_mh'
 'alias' '_alias'
 'amaya' '_webbrowser'
@@ -401,6 +402,7 @@ _comps=(
 'fc' '_fc'
 'fc-list' '_xft_fonts'
 'fc-match' '_xft_fonts'
+'fd' '_fd'
 'feh' '_feh'
 'fetch' '_fetch'
 'fetchmail' '_fetchmail'
@@ -1090,6 +1092,7 @@ _comps=(
 'pkgrm' '_pkgrm'
 'pkgtool' '_pkgtool'
 'pkill' '_pgrep'
+'playerctl' '_playerctl'
 'pldd' '_pids'
 'plutil' '_plutil'
 'pmake' '_make'
@@ -1462,6 +1465,7 @@ _comps=(
 'tkconch' '_twisted'
 'tkinfo' '_texinfo'
 'tla' '_tla'
+'tldr' '_tldr'
 'tload' '_tload'
 'tmux' '_tmux'
 'todo' '_devtodo'
@@ -1897,16 +1901,17 @@ bindkey '^[,' _history-complete-newer
 bindkey '^[/' _history-complete-older
 bindkey '^[~' _bash_complete-word
 
-autoload -Uz _bluetoothctl _bootctl _busctl _bwrap _catimg \
-            _coredumpctl _curl _darkman _firewalld _flatpak \
-            _foot _footclient _hg _hostnamectl _journalctl \
-            _kernel-install _libinput _localectl _loginctl _machinectl \
-            _mako _makoctl _mercurial _meson _mpv \
-            _networkctl _ninja _nnn _oomctl _podman \
-            _resolvectl _riverctl _sd_hosts_or_user_at_host _sd_machines _sd_outputmodes \
-            _sd_unit_files _sway _swayidle _swaylock _swaymsg \
-            _systemctl _systemd _systemd-analyze _systemd-delta _systemd-inhibit \
-            _systemd-nspawn _systemd-path _systemd-run _systemd-tmpfiles _timedatectl \
+autoload -Uz _alacritty _bluetoothctl _bootctl _busctl _bwrap \
+            _catimg _coredumpctl _curl _darkman _fd \
+            _firewalld _flatpak _foot _footclient _hg \
+            _hostnamectl _journalctl _kdeconnect _kernel-install _libinput \
+            _localectl _loginctl _machinectl _mako _makoctl \
+            _mercurial _meson _mpv _networkctl _ninja \
+            _nnn _oomctl _playerctl _podman _resolvectl \
+            _riverctl _sd_hosts_or_user_at_host _sd_machines _sd_outputmodes _sd_unit_files \
+            _sway _swayidle _swaylock _swaymsg _systemctl \
+            _systemd _systemd-analyze _systemd-delta _systemd-inhibit _systemd-nspawn \
+            _systemd-path _systemd-run _systemd-tmpfiles _timedatectl _tldr \
             _udevadm _wl-copy _wl-paste _yt-dlp _a2ps \
             _a2utils _aap _abcde _absolute_command_paths _ack \
             _acpi _acpitool _acroread _adb _add-zle-hook-widget \

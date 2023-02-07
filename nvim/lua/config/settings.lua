@@ -45,10 +45,11 @@ vim.cmd([[
 ]], true)
 
 -- opt.wildmenu = true -- better tab complete
-opt.laststatus = 3
+opt.laststatus = 2
 opt.showmode = false
 opt.splitright = true
 opt.splitbelow = true
+-- opt.fillchars = "horiz:·,vert:|"
 opt.updatetime = 250
 opt.signcolumn = "yes"
 opt.cursorline = true
@@ -62,7 +63,7 @@ opt.smartcase = true
 -- opt.autochdir = true -- automatically change directory to current file's directory
 opt.autoread = true -- Automatically read in the file when changed externally
 opt.autowriteall = true
-opt.mouse = "a" -- mouse support in all modes
+opt.mouse = "nv"
 opt.pumheight = 8 -- max number of items in autocomplete
 vim.opt.guifont = "SauceCodePro NF:h10"
 

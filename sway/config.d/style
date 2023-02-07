@@ -1,14 +1,17 @@
 output * bg ~/wallpapers/wallpaper.jpg fill
 # exec_always swaybg -m fill -o "*" -i ~/wallpapers/wallpaper.jpg
 
-corner_radius 8
+# corner_radius 7
 title_align left
 titlebar_border_thickness 0
 titlebar_padding 8 3
 font "Roboto 10"
 default_border normal 1
 # client.focused #292624 #292624 #aaaaaa #292624
-client.focused #8f875f #8f875f #1a1a1a #8f875f
+# set $main_color #8f875f
+# set $main_color #958562
+set $main_color #938c6c
+client.focused $main_color $main_color #1a1a1a $main_color
 client.unfocused #1f1f1f #1f1f1f #606060 #1f1f1f
 client.focused_inactive #1f1f1f #1f1f1f #606080 #1f1f1f
 hide_edge_borders smart
@@ -18,12 +21,13 @@ for_window [class="Emacs"] border pixel 1
 for_window [class="obsidian"] border normal 1
 for_window [app_id="ulauncher"] border none
 for_window [app_id="brave-browser"] border none
+# for_window [app_id="firefox"] saturation set 0.0
 
-# set $cursor elementary
-set $cursor adwaita
+# set $cursor_theme elementary
+set $cursor_theme Adwaita
 set $cursor_size 24
 
-seat seat0 xcursor_theme $cursor $cursor_size
+seat seat0 xcursor_theme $cursor_theme $cursor_size
 
 set $gnome-schema org.gnome.desktop.interface
 exec_always {
@@ -33,10 +37,10 @@ exec_always {
     # gsettings set $gnome-schema gtk-theme 'Mint-Y-Dark-Purple'
     # gsettings set $gnome-schema icon-theme 'Paper-Mono-Dark'
     gsettings set $gnome-schema icon-theme 'Adwaita'
-    gsettings set $gnome-schema cursor-theme '$cursor'
+    gsettings set $gnome-schema cursor-theme '$cursor_theme'
     gsettings set $gnome-schema cursor-size $cursor_size
     gsettings set $gnome-schema font-name 'Source Sans Pro, 11'
-    gsettings set $gnome-schema text-scaling-factor 1.1
+    gsettings set $gnome-schema text-scaling-factor 1.0
 }
 
 smart_gaps on

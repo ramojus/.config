@@ -16,8 +16,9 @@ local function setup_colors()
         orange = utils.get_highlight("Keyword").fg,
         purple = utils.get_highlight("Constant").fg,
         blue = utils.get_highlight("Function").fg,
-        white = utils.get_highlight("Normal").fg,
-        black = utils.get_highlight("Normal").bg,
+        -- white = utils.get_highlight("Normal").fg,
+        white = utils.get_highlight("StatusLine").fg,
+        black = utils.get_highlight("Statusline").bg,
 
         diag_warn = utils.get_highlight("DiagnosticWarn").fg,
         diag_error = utils.get_highlight("DiagnosticError").fg,
@@ -32,9 +33,9 @@ end
 heirline.load_colors(setup_colors())
 
 local mode = require 'config.plugins.heirline.mode'
-local file = require 'config.plugins.heirline.file'(utils)
-local git = require 'config.plugins.heirline.git'(conditions)
-local lsp = require 'config.plugins.heirline.lsp'(conditions)
+local file = require 'config.plugins.heirline.file' (utils)
+local git = require 'config.plugins.heirline.git' (conditions)
+local lsp = require 'config.plugins.heirline.lsp' (conditions)
 
 
 local align = { provider = "%=" }
@@ -45,12 +46,19 @@ file.meta = utils.surround({ "(", ")" }, nil, file.meta)
 -- git = utils.make_flexible_component(3, git, { provider = "" })
 -- lsp.server_name = utils.make_flexible_component(4, lsp.server_name, { provider = "" })
 -- file.meta = utils.make_flexible_component(5, file.meta, { provider = "" })
-git = { flexible = 3, git }
-lsp.server_name = { flexible = 4, lsp.server_name }
-file.meta = { flexible = 5, file.meta }
+git = { flexible = 3, git, { provider = "" } }
+lsp.server_name = { flexible = 4, lsp.server_name, { provider = "" } }
+file.meta = { flexible = 5, file.meta, { provider = "" } }
+file.ruler = { flexible = 7, file.ruler, { provider = "" } }
+mode = { flexible = 8, mode, { provider = "" } }
 
 local default_statusline = {
-    mode, space , file.name_block, space, space, lsp.diagnostics, lsp.server_name --[[ lsp.navic, (waiting for winbar) ]], align,
+    condition = function()
+        return conditions.is_active()
+    end,
+
+    mode, space, file.name_block, space, space, lsp.diagnostics, lsp.server_name --[[ lsp.navic, (waiting for winbar) ]]
+    , align,
     file.ruler, space, space, git, file.meta, space
 }
 
@@ -59,12 +67,49 @@ local inactive_statusline = {
         return not conditions.is_active()
     end,
 
-    align, file.name_block, align,
+    mode, space, file.name_block, space, space, lsp.diagnostics, lsp.server_name --[[ lsp.navic, (waiting for winbar) ]]
+    , align,
+    file.ruler, space, space, git, file.meta, space
+}
+
+local file_explorer_statusline = {
+    condition = function()
+        return conditions.buffer_matches({
+            filetype = { "NvimTree" },
+        })
+    end,
+
+    hl = utils.get_highlight("Normal").bg,
+    { provider = " Files %=" }
+}
+
+local empty_statusline = {
+    condition = function()
+        return conditions.buffer_matches({
+            buftype = { "nofile" }
+        })
+    end,
+    { provider = "" }
+}
+
+local terminal_statusline = {
+    condition = function()
+        return conditions.buffer_matches({
+            buftype = { "terminal" }
+        })
+    end,
+    { provider = "" }
 }
 
 local statuslines
 
-if vim.opt.laststatus ~= 3 then
+if vim.opt.laststatus == 3 then
+    statuslines = {
+        hl = "StatusLine",
+        fallthrough = false,
+        default_statusline
+    }
+else
     statuslines = {
         hl = function()
             if conditions.is_active() then
@@ -76,24 +121,18 @@ if vim.opt.laststatus ~= 3 then
 
         fallthrough = false,
 
-        default_statusline, inactive_statusline
-    }
-else
-    statuslines = {
-        hl = "StatusLine",
-        fallthrough = false,
-        default_statusline
+        file_explorer_statusline, terminal_statusline, empty_statusline, default_statusline, inactive_statusline
     }
 end
 
-heirline.setup(statuslines)
+heirline.setup({ statusline = statuslines })
 
-vim.api.nvim_create_augroup("Heirline", { clear = true })
+local group = vim.api.nvim_create_augroup("Heirline", { clear = true })
 vim.api.nvim_create_autocmd("ColorScheme", {
     callback = function()
         require('heirline').reset_highlights()
         require('heirline').load_colors(setup_colors())
     end,
-    group = "Heirline",
+    group = group,
 })
 

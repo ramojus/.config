@@ -1,5 +1,9 @@
 font=Roboto 10
 default-timeout=5000
+background-color=#121212FF
+border-color=#c4c4c4FF
+progress-color=#938c6cAA
+text-color=#c4c4c4FF
 
 [summary=Volume]
 format=<b>%s</b>

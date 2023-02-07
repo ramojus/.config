@@ -3,12 +3,13 @@ local servers = {
     "cmake",
     "html",
     "sumneko_lua",
-    "pyright",
+    -- "pyright",
     "rust_analyzer",
     "texlab",
     "eslint",
     "julials",
     "gopls",
+    "hls",
 }
 
 require 'mason'.setup();
@@ -34,10 +35,10 @@ for _, server in pairs(servers) do
         opts = vim.tbl_deep_extend("force", require'config.lsp.settings.lua', opts)
     end
 
-    if server == "clangd" then
+    -- if server == "clangd" then
         -- until this is fixed: https://github.com/jose-elias-alvarez/null-ls.nvim/issues/428
-        opts.capabilities.offsetEncoding = { "utf-16" }
-    end
+        -- opts.capabilities.offsetEncoding = { "utf-16" }
+    -- end
 
     if server == "rust_analyzer" then
         opts = vim.tbl_deep_extend("force", require'config.lsp.settings.rust', opts)

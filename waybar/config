@@ -6,6 +6,24 @@
     ],
     "modules-center": ["clock"],
     "modules-right": ["battery"],
+    "sway/workspaces": {
+         "disable-scroll": true,
+         "disable-markup" : false,
+         "all-outputs": true,
+         "format": "{icon}",
+         "format-icons": {
+             "1": "q",
+             "2": "w",
+             "3": "e",
+             "4": "r",
+             "5": "t",
+             "6": "1",
+             "7": "2",
+             "8": "3",
+             "9": "4",
+             "10": "5",
+         }
+     },
     "height": 18,
     "clock": {
         "format": "{:%b %d, %a  %H:%M}"

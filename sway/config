@@ -13,8 +13,8 @@ set $menu wofi --show drun
 
 xwayland enable
 
-exec systemctl --user import-environment # ..WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-# exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
 for_window [workspace="4"] floating enable
 for_window [workspace="5"] floating enable
@@ -22,6 +22,12 @@ for_window [workspace="6"] floating enable
 for_window [workspace="8"] floating enable
 
 workspace_auto_back_and_forth yes
+
+# focus urgent
+focus_on_window_activation focus
+
+seat * hide_cursor 8000
+# seat * hide_cursor when-typing enable
 
 ### Idle configuration
 # exec swayidle -w \
@@ -46,7 +52,9 @@ workspace_auto_back_and_forth yes
 # output eDP-1 pos 0 1080
 # output eDP-1 pos 0 0
 
+workspace 1 output eDP-1
 workspace 9 output eDP-1
+workspace 10 output eDP-1
 workspace 1 output DP-1
 workspace 2 output DP-1
 workspace 3 output DP-1

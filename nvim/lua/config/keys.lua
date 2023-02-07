@@ -25,6 +25,7 @@ Map ('v', 'J',           [[:m '>+1<CR>gv=gv]])
 Map ('v', 'K',           [[:m '<-2<CR>gv=gv]])
 Map ('n', '<M-J>',       [[:m .+1<CR>]])
 Map ('n', '<M-K>',       [[:m .-2<CR>]])
+Map ('n', 'tt',          [[:setlocal shiftwidth=2 tabstop=2<CR>]])
 
 --                  Centered search
 ---------------------------------------------------------
@@ -75,7 +76,6 @@ Map ('n', '<leader>fF',  ':Telescope find_files cwd=~ hidden=1<cr>')
 Map ('n', '<leader>fc',  ':Telescope find_files cwd=~/.config<cr>')
 Map ('n', '<leader>fg',  ':Telescope live_grep<cr>')
 Map ('n', '<leader>fb',  ':Telescope buffers<cr>')
-Map ('n', '<leader>ft',  ':Telescope buffers<cr>')
 Map ('n', '<leader>fh',  ':Telescope help_tags<cr>')
 Map ('n', '<leader>fH',  ':Telescope highlights<cr>')
 Map ('n', '<leader>fp',  ':Telescope planets<cr>')
@@ -91,6 +91,9 @@ Map ('n', '<leader>hf',   ':lua require("harpoon.ui").nav_file(1)<cr>')
 Map ('n', '<leader>hd',   ':lua require("harpoon.ui").nav_file(2)<cr>')
 Map ('n', '<leader>hs',   ':lua require("harpoon.ui").nav_file(3)<cr>')
 Map ('n', '<leader>ha',   ':lua require("harpoon.ui").nav_file(4)<cr>')
+Map ('n', '<leader>hc',   ':lua require("harpoon.cmd-ui").toggle_quick_menu()<cr>')
+Map ('n', '<leader>hr',   ':lua require("harpoon.term").sendCommand(1, 1)<cr>')
+Map ('n', '<leader>ht',   ':lua require("harpoon.term").gotoTerminal(1)<cr>')
 
 --                  Yanking
 ---------------------------------------------------------

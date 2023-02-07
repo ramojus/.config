@@ -41,9 +41,9 @@ return function(utils)
 
     local flags = {
         {
-            provider = function() if vim.bo.modified then return "[+]" end end,
+            provider = function() if vim.bo.modified then return " [+]" end end,
             -- provider = function() if vim.bo.modified then return "  " end end,
-            hl = { fg = "orange" }
+            -- hl = { fg = "orange" }
 
         }, {
             provider = function() if (not vim.bo.modifiable) or vim.bo.readonly then return "[-]" end end,
@@ -61,14 +61,15 @@ return function(utils)
         hl = function()
             if vim.bo.modified then
                 -- use `force` because we need to override the child's hl foreground
-                return { fg = "orange", bold = false, force=true }
+                -- return { fg = "orange", bold = false, force=true }
+                return { fg = "white", force = true }
             end
         end,
     }
 
     -- let's add the children to our FileNameBlock component
     name_block = utils.insert(name_block,
-        -- icon,
+        icon,
         utils.insert(name_modifier, name), -- a new table where FileName is a child of FileNameModifier
         unpack(flags), -- A small optimisation, since their parent does nothing
         { provider = '%<'} -- this means that the statusline is cut here when there's not enough space

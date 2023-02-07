@@ -1,2 +1,0 @@
-#!/usr/bin/env bash
-git --git-dir=./.git-bare/ --work-tree=. "$@"

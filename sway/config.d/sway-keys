@@ -25,13 +25,13 @@ bindsym $mod+Control+$right resize grow width 20px
 bindsym $mod+Control+b resize set 880 1000
 bindsym $mod+n resize set width 650px
 
-set $trans 0.88
-set $alphamark "α"
-for_window [con_mark=$alphamark] opacity set $trans
-bindsym $mod+$alt+o mark --toggle "$alphamark" ; [con_id=__focused__] opacity set 1 ; [con_mark=$alphamark con_id=__focused__] opacity set $trans
+bindsym $mod+Control+$alt+s mark --toggle "saturation" ; [con_id=__focused__] saturation set 1 ; [con_mark=saturation con_id=__focused__] saturation set 0
 
-bindsym --whole-window $mod+button4 opacity plus 0.02
-bindsym --whole-window $mod+button5 opacity minus 0.02
+# bindsym --whole-window $mod+button4 opacity plus 0.02
+# bindsym --whole-window $mod+button5 opacity minus 0.02
+
+bindsym --whole-window $alt+button4 saturation plus 0.02
+bindsym --whole-window $alt+button5 saturation minus 0.02
 
 # Workspaces:
 bindcode {

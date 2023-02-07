@@ -14,7 +14,6 @@ vim.cmd [[
     augroup end
 ]]
 
--- TODO: FIX: jfkdsljfdkl
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
@@ -34,19 +33,22 @@ return packer.startup(function(use)
     -- use 'savq/melange'
     -- use 'wadackel/vim-dogrun'
     -- use 'ishan9299/modus-theme-vim'
-    use { 'rktjmp/lush.nvim' }
+    -- use { 'rktjmp/lush.nvim' }
+    use 'kvrohit/mellow.nvim'
+    use { "shortcuts/no-neck-pain.nvim", tag = "*" }
     use {
-        "mcchrish/zenbones.nvim",
-        requires = "rktjmp/lush.nvim"
-    }
-    use {
-        '~/dev/meliora.nvim',
-        -- 'meliora-theme/neovim',
+        '~/dev/mellifluous.nvim',
+        -- 'ramojus/mellifluous.nvim',
         config = function()
             require 'config.plugins.meliora'
-        end
+        end,
+        requires = "rktjmp/lush.nvim"
     }
+    use 'ramojus/neovim-test-plugin'
+
     use 'catppuccin/nvim'
+    use 'TheNiteCoder/mountaineer.vim'
+    use 'savq/melange'
 
     use {
         'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
@@ -61,7 +63,7 @@ return packer.startup(function(use)
     use 'neovim/nvim-lspconfig'
     use { "williamboman/mason.nvim" }
     use { "williamboman/mason-lspconfig.nvim" }
-    use 'jose-elias-alvarez/null-ls.nvim'
+    -- use 'jose-elias-alvarez/null-ls.nvim'
     use { 'simrat39/rust-tools.nvim', ft = { "rust" } }
     use {
         'kdheepak/JuliaFormatter.vim',
@@ -90,14 +92,14 @@ return packer.startup(function(use)
             require 'config.plugins.firenvim'
         end,
     }
-    use {
-        'dccsillag/magma-nvim',
-        run = ':UpdateRemotePlugins',
-        -- event = "BufEnter *.sm",
-        config = function()
-            require 'config.plugins.magma'
-        end,
-    }
+    -- use {
+    --     'dccsillag/magma-nvim',
+    --     run = ':UpdateRemotePlugins',
+    --     -- event = "BufEnter *.sm",
+    --     config = function()
+    --         require 'config.plugins.magma'
+    --     end,
+    -- }
 
     use {
         'hrsh7th/nvim-cmp',
@@ -139,12 +141,12 @@ return packer.startup(function(use)
             require 'config.plugins.mkdnflow'
         end
     }
-
     use {
-        'mhinz/vim-signify',
+        'jubnzv/mdeval.nvim',
+        ft = { "markdown" },
         config = function()
-            require 'config.plugins.signify'
-        end,
+            require 'config.plugins.mdeval'
+        end
     }
 
     use { 'mbbill/undotree', cmd = { "UndotreeToggle" } }
@@ -163,7 +165,8 @@ return packer.startup(function(use)
         end,
     }
     use {
-        'akinsho/nvim-toggleterm.lua',
+        'akinsho/toggleterm.nvim',
+        -- '~/dev/toggleterm.nvim',
         config = function()
             require 'config.plugins.toggleterm'
         end,
@@ -176,10 +179,15 @@ return packer.startup(function(use)
     --          require 'config.plugins.true-zen'
     --     end,
     -- }
-    
+
     use { 'ThePrimeagen/vim-be-good', cmd = "VimBeGood" }
-    use 'ThePrimeagen/harpoon'
-    
+    use {
+        'ThePrimeagen/harpoon',
+        config = function()
+            require 'config.plugins.harpoon'
+        end,
+    }
+
     use 'kyazdani42/nvim-web-devicons'
     use {
         'windwp/nvim-autopairs',
@@ -218,6 +226,7 @@ return packer.startup(function(use)
             require 'config.plugins.gitsigns'
         end
     }
+    use 'tpope/vim-fugitive'
 
     use 'nvim-lua/plenary.nvim'
 

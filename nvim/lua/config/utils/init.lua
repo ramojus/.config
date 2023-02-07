@@ -40,7 +40,7 @@ end
 
 function utils.create_autocmd(group_name, events, params)
     local group = vim.api.nvim_create_augroup(group_name, { clear = true })
-    params = merge(params, { group = group });
+    params = merge(params, { group = group })
     vim.api.nvim_create_autocmd(
         events,
         params

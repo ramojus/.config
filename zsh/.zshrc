@@ -74,6 +74,7 @@ distro=$(cat /etc/os-release | grep ^ID= | cut -d\" -f2 | cut -d= -f2)
 alias ls="ls --color=always"
 alias rm=trash
 alias git-bare="git --git-dir=./.git-bare/ --work-tree=."
+alias cdnotes='cd ~/site-notes/content/6'
 
 # Load aliases and shortcuts if existent.
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc"

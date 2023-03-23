@@ -1,6 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =4
-let g:netrw_dirhist_4='/home/ramojus/studijos/programavimo_pagrindai/namu_darbai/moot/app'
-let g:netrw_dirhist_3='/home/ramojus/studijos/programavimo_pagrindai/namu_darbai/moot'
-let g:netrw_dirhist_2='/home/ramojus/studijos/programavimo_pagrindai/namu_darbai/moot/app'
-let g:netrw_dirhist_1='/home/ramojus/studijos/programavimo_pagrindai/namu_darbai/moot'

@@ -17,11 +17,23 @@ mode "record" {
 
     bindsym Escape mode "default"
     bindsym $mod+Control+r mode "default"
+
 }
 bindsym $mod+Control+r mode "record"
 
 mode "recording" {
     bindsym $mod+Control+r exec killall -s SIGINT wf-recorder && swaymsg mode "default"
+    # Switch to workspace
+    bindcode $mod+24 workspace 1
+    bindcode $mod+25 workspace 2
+    bindcode $mod+26 workspace 3
+    bindcode $mod+27 workspace 4
+    bindcode $mod+28 workspace 5
+    bindcode $mod+10 workspace 6
+    bindcode $mod+11 workspace 7
+    bindcode $mod+12 workspace 8
+    bindcode $mod+13 workspace 9
+    bindcode $mod+14 workspace 10
 }
 
 bindsym $mod+Escape exec sxiv -f -s w -b ~/Documents/Escape.png

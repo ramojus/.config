@@ -136,8 +136,9 @@ Map ('n', '<leader>cp',  [[:let @+=expand('%:p:h')<CR>]]) -- copy current file p
 Map ('n', '<leader>md',  [[:!mkdir -p "%:p:h"<CR>]], {silent = false}) -- create non-existant file directory.
 Map ('n', '<C-s>',       [[:%s/<C-r>0//g<left><left>]], {silent = false})
 Map ('v', '<C-s>',       [[:s/<C-r>0//g<left><left>]], {silent = false})
-
-
+-- mouse scrolling (with opt.mouse = "")
+Map ('n', '<Up>', '<C-y>')
+Map ('n', '<Down>', '<C-e>')
 
 --                  Snippets
 ---------------------------------------------------------

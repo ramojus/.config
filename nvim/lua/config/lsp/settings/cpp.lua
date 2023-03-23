@@ -1,6 +1,7 @@
 local opts = {
+    cmd = { 'clangd' },
     settings = {
-
+        IndentWidth = 4,
     }
 }
 

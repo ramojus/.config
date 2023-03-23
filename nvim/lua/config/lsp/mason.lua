@@ -2,7 +2,7 @@ local servers = {
     "clangd",
     "cmake",
     "html",
-    "sumneko_lua",
+    "lua_ls",
     -- "pyright",
     "rust_analyzer",
     "texlab",
@@ -31,14 +31,19 @@ for _, server in pairs(servers) do
     }
     opts.capabilities = require('cmp_nvim_lsp').default_capabilities(opts.capabilities)
 
-    if server == "sumneko_lua" then
+    if server == "lua_ls" then
         opts = vim.tbl_deep_extend("force", require'config.lsp.settings.lua', opts)
     end
 
-    -- if server == "clangd" then
+    if server == "hls" then
+        opts = vim.tbl_deep_extend("force", require'config.lsp.settings.haskell', opts)
+    end
+
+    if server == "clangd" then
         -- until this is fixed: https://github.com/jose-elias-alvarez/null-ls.nvim/issues/428
         -- opts.capabilities.offsetEncoding = { "utf-16" }
-    -- end
+        opts = vim.tbl_deep_extend("force", require'config.lsp.settings.cpp', opts)
+    end
 
     if server == "rust_analyzer" then
         opts = vim.tbl_deep_extend("force", require'config.lsp.settings.rust', opts)

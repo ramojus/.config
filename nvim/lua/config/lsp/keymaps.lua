@@ -34,8 +34,8 @@ local function set_keymaps(bufnr)
         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end)
 
-    nmap('<leader>dn', vim.diagnostic.goto_next)
-    nmap('<leader>dp', vim.diagnostic.goto_prev)
+    nmap(']d', vim.diagnostic.goto_next)
+    nmap('[d', vim.diagnostic.goto_prev)
     nmap('<leader>dl', '<cmd>Telescope diagnostics<CR>')
 
     nmap('<leader>R', [[:LspStop<CR>:LspStart<CR>]])

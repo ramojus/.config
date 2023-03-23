@@ -85,13 +85,7 @@ return packer.startup(function(use)
             require 'config.plugins.vimtex'
         end,
     }
-    use {
-        'glacambre/firenvim',
-        run = function() vim.fn['firenvim#install'](0) end,
-        config = function()
-            require 'config.plugins.firenvim'
-        end,
-    }
+    use 'ray-x/lsp_signature.nvim'
     -- use {
     --     'dccsillag/magma-nvim',
     --     run = ':UpdateRemotePlugins',
@@ -121,6 +115,7 @@ return packer.startup(function(use)
         end,
     }
 
+    use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
     use 'tpope/vim-surround'
     use {
         'numToStr/Comment.nvim',

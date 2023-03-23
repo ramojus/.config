@@ -63,9 +63,11 @@ opt.smartcase = true
 -- opt.autochdir = true -- automatically change directory to current file's directory
 opt.autoread = true -- Automatically read in the file when changed externally
 opt.autowriteall = true
-opt.mouse = "nv"
+-- opt.mouse = "nv"
+opt.mouse=""
 opt.pumheight = 8 -- max number of items in autocomplete
 vim.opt.guifont = "SauceCodePro NF:h10"
+vim.cmd [[setlocal cinkeys-=0#]] -- don't shift preprocessor directives to the start of line in Clangs.
 
 -- don't auto comment new lines
 cmd [[au BufEnter * set fo-=cro]]

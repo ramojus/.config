@@ -1,10 +1,16 @@
 output * bg ~/wallpapers/wallpaper.jpg fill
 # exec_always swaybg -m fill -o "*" -i ~/wallpapers/wallpaper.jpg
 
-# corner_radius 7
+# corner_radius 8
+# shadows on
+# shadow_blur_radius 20
+# shadow_color #0000009F
+# shadows_on_csd on
+# default_border pixel 1
+
 title_align left
 titlebar_border_thickness 0
-titlebar_padding 8 3
+titlebar_padding 10 3
 font "Roboto 10"
 default_border normal 1
 # client.focused #292624 #292624 #aaaaaa #292624

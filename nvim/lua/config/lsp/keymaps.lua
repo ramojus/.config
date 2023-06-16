@@ -36,6 +36,7 @@ local function set_keymaps(bufnr)
 
     nmap(']d', vim.diagnostic.goto_next)
     nmap('[d', vim.diagnostic.goto_prev)
+    nmap('<leader>ld', vim.diagnostic.open_float)
     nmap('<leader>dl', '<cmd>Telescope diagnostics<CR>')
 
     nmap('<leader>R', [[:LspStop<CR>:LspStart<CR>]])

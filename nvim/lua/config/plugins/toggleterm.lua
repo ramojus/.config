@@ -11,7 +11,7 @@ require("toggleterm").setup {
     hide_numbers = true, -- hide the number column in toggleterm buffers
     -- shade_filetypes = { "none" },
     shade_terminals = true,
-    shading_factor = 20, -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
+    shading_factor = 10, -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
     start_in_insert = true,
     insert_mappings = true, -- whether or not the open mapping applies in insert mode
     persist_size = true,
@@ -32,7 +32,7 @@ require("toggleterm").setup {
     --     -- see :h nvim_open_win for details on borders however
     --     -- the 'curved' border is a custom border type
     --     -- not natively supported but implemented in this plugin.
-        border = 'single', -- 'single' | 'double' | 'shadow' | 'curved' | ... other options supported by win open
+        border = 'curved', -- 'single' | 'double' | 'shadow' | 'curved' | ... other options supported by win open
     --         --   -- border = "FloatBorder",
     --         --   -- background = "Float",
     }

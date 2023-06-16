@@ -8,6 +8,9 @@ parser_configs.norg = {
     },
 }
 
+-- vim.notify("before")
+-- vim.notify("")
+
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "all", -- one of "all", or a list of languages
   highlight = {
@@ -16,4 +19,5 @@ require'nvim-treesitter.configs'.setup {
     -- additional_vim_regex_highlighting = false,
   },
 }
+
 

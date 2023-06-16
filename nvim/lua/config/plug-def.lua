@@ -24,7 +24,6 @@ end
 return packer.startup(function(use)
     use 'wbthomason/packer.nvim'
 
-    use 'mountain-theme/vim'
     -- use 'Mofiqul/vscode.nvim'
     -- use 'NTBBloodbath/doom-one.nvim'
     -- use 'AlessandroYorba/Alduin' -- using modified alduin
@@ -34,7 +33,6 @@ return packer.startup(function(use)
     -- use 'wadackel/vim-dogrun'
     -- use 'ishan9299/modus-theme-vim'
     -- use { 'rktjmp/lush.nvim' }
-    use 'kvrohit/mellow.nvim'
     use { "shortcuts/no-neck-pain.nvim", tag = "*" }
     use {
         '~/dev/mellifluous.nvim',
@@ -42,13 +40,40 @@ return packer.startup(function(use)
         config = function()
             require 'config.plugins.meliora'
         end,
-        requires = "rktjmp/lush.nvim"
+        requires = "rktjmp/lush.nvim",
     }
-    use 'ramojus/neovim-test-plugin'
+    -- use 'ramojus/neovim-test-plugin'
 
+    -- use 'mountain-theme/vim'
     use 'catppuccin/nvim'
-    use 'TheNiteCoder/mountaineer.vim'
-    use 'savq/melange'
+    -- use 'TheNiteCoder/mountaineer.vim'
+    -- use 'savq/melange'
+    -- use 'jacoborus/tender.vim'
+    -- use 'kvrohit/mellow.nvim'
+    -- use 'morhetz/gruvbox'
+    use {
+        'rebelot/kanagawa.nvim',
+        config = {
+            require'kanagawa'.setup({
+                theme = ""
+            })
+        }
+    }
+
+    use {
+        'brenoprata10/nvim-highlight-colors',
+        config = function()
+            require('nvim-highlight-colors').setup {
+                enable_named_colors = false,
+            }
+        end,
+    }
+    use {
+        'echasnovski/mini.misc',
+        config = function()
+            require 'mini.misc'.setup()
+        end
+    }
 
     use {
         'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
@@ -57,6 +82,7 @@ return packer.startup(function(use)
         end,
     }
     use 'rktjmp/shipwright.nvim'
+    use { 'kaarmu/typst.vim', ft = { 'typst' } }
 
     use { 'nvim-treesitter/playground', cmd = 'TSPlaygroundToggle' }
 
@@ -77,6 +103,7 @@ return packer.startup(function(use)
         config = function()
             require 'fidget'.setup {}
         end,
+        branch = 'legacy'
     }
     use { 'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu' }
     use {
@@ -115,7 +142,7 @@ return packer.startup(function(use)
         end,
     }
 
-    use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
+    -- use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
     use 'tpope/vim-surround'
     use {
         'numToStr/Comment.nvim',
@@ -142,6 +169,19 @@ return packer.startup(function(use)
         config = function()
             require 'config.plugins.mdeval'
         end
+    }
+    use {
+        'JellyApple102/flote.nvim', -- per project notes
+        config = function()
+            require 'flote'.setup()
+        end
+    }
+    use {
+        "nvim-neorg/neorg",
+        run = ":Neorg sync-parsers",
+        config = function()
+            require 'config.plugins.neorg'
+        end,
     }
 
     use { 'mbbill/undotree', cmd = { "UndotreeToggle" } }
@@ -197,18 +237,18 @@ return packer.startup(function(use)
             require 'config.plugins.ts-rainbow'
         end,
     }
-    use {
-        'dstein64/nvim-scrollview',
-        config = function()
-            require 'config.plugins.scrollview'
-        end,
-    }
-    use {
-        'lukas-reineke/indent-blankline.nvim',
-        config = function()
-            require 'config.plugins.indent-blankline'
-        end,
-    }
+    -- use {
+    --     'dstein64/nvim-scrollview',
+    --     config = function()
+    --         require 'config.plugins.scrollview'
+    --     end,
+    -- }
+    -- use {
+    --     'lukas-reineke/indent-blankline.nvim',
+    --     config = function()
+    --         require 'config.plugins.indent-blankline'
+    --     end,
+    -- }
     use { 'rebelot/heirline.nvim',
         config = function()
             require 'config.plugins.heirline'
@@ -222,6 +262,18 @@ return packer.startup(function(use)
         end
     }
     use 'tpope/vim-fugitive'
+    -- use {
+    --     '~/dev/ft-highlight',
+    --     config = function()
+    --         require('ft-highlight').setup()
+    --     end
+    -- }
+    use {
+        'echasnovski/mini.colors',
+        config = function()
+            require('mini.colors').setup()
+        end
+    }
 
     use 'nvim-lua/plenary.nvim'
 

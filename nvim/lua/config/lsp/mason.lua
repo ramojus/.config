@@ -3,7 +3,7 @@ local servers = {
     "cmake",
     "html",
     "lua_ls",
-    -- "pyright",
+    "pyright",
     "rust_analyzer",
     "texlab",
     "eslint",

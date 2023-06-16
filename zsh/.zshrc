@@ -75,6 +75,7 @@ alias ls="ls --color=always"
 alias rm=trash
 alias git-bare="git --git-dir=./.git-bare/ --work-tree=."
 alias cdnotes='cd ~/site-notes/content/6'
+alias signal='flatpak run org.signal.Signal --enable-features=UseOzonePlatform --ozone-platform=wayland'
 
 # Load aliases and shortcuts if existent.
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc"
@@ -153,16 +154,16 @@ bindkey '^e' edit-command-line
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/ramojus/mambaforge/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/ramojus/mambaforge/etc/profile.d/conda.sh" ]; then
-        . "/home/ramojus/mambaforge/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/ramojus/mambaforge/bin:$PATH"
-    fi
-fi
-unset __conda_setup
+# __conda_setup="$('/home/ramojus/mambaforge/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/home/ramojus/mambaforge/etc/profile.d/conda.sh" ]; then
+#         . "/home/ramojus/mambaforge/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/home/ramojus/mambaforge/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
 # <<< conda initialize <<<
 

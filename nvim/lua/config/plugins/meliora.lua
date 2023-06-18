@@ -1,6 +1,7 @@
 require 'mellifluous'.setup {
     color_set = 'mellifluous',
     mellifluous = {
+        neutral = true,
         -- color_overrides = {
         --     dark = {
         --         bg = "#2f1f1f",

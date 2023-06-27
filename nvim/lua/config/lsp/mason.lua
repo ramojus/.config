@@ -12,7 +12,9 @@ local servers = {
     "hls",
 }
 
-require 'mason'.setup();
+require 'mason'.setup({
+    PATH = "append", -- do not install a package if it can be found on the system
+});
 
 require 'mason-lspconfig'.setup {
     ensure_installed = servers,
@@ -40,8 +42,6 @@ for _, server in pairs(servers) do
     end
 
     if server == "clangd" then
-        -- until this is fixed: https://github.com/jose-elias-alvarez/null-ls.nvim/issues/428
-        -- opts.capabilities.offsetEncoding = { "utf-16" }
         opts = vim.tbl_deep_extend("force", require'config.lsp.settings.cpp', opts)
     end
 

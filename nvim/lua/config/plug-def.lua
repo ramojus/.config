@@ -24,40 +24,19 @@ end
 return packer.startup(function(use)
     use 'wbthomason/packer.nvim'
 
-    -- use 'Mofiqul/vscode.nvim'
-    -- use 'NTBBloodbath/doom-one.nvim'
-    -- use 'AlessandroYorba/Alduin' -- using modified alduin
-    -- use 'sainnhe/gruvbox-material'
-    -- use 'metalelf0/jellybeans-nvim'
-    -- use 'savq/melange'
-    -- use 'wadackel/vim-dogrun'
-    -- use 'ishan9299/modus-theme-vim'
-    -- use { 'rktjmp/lush.nvim' }
     use { "shortcuts/no-neck-pain.nvim", tag = "*" }
     use {
-        '~/dev/mellifluous.nvim',
-        -- 'ramojus/mellifluous.nvim',
+        -- '~/dev/mellifluous.nvim',
+        'ramojus/mellifluous.nvim',
         config = function()
-            require 'config.plugins.meliora'
+            require 'config.plugins.mellifluous'
         end,
         requires = "rktjmp/lush.nvim",
     }
-    -- use 'ramojus/neovim-test-plugin'
 
-    -- use 'mountain-theme/vim'
     use 'catppuccin/nvim'
-    -- use 'TheNiteCoder/mountaineer.vim'
-    -- use 'savq/melange'
-    -- use 'jacoborus/tender.vim'
-    -- use 'kvrohit/mellow.nvim'
-    -- use 'morhetz/gruvbox'
     use {
         'rebelot/kanagawa.nvim',
-        config = {
-            require'kanagawa'.setup({
-                theme = ""
-            })
-        }
     }
 
     use {
@@ -113,14 +92,6 @@ return packer.startup(function(use)
         end,
     }
     use 'ray-x/lsp_signature.nvim'
-    -- use {
-    --     'dccsillag/magma-nvim',
-    --     run = ':UpdateRemotePlugins',
-    --     -- event = "BufEnter *.sm",
-    --     config = function()
-    --         require 'config.plugins.magma'
-    --     end,
-    -- }
 
     use {
         'hrsh7th/nvim-cmp',
@@ -142,7 +113,6 @@ return packer.startup(function(use)
         end,
     }
 
-    -- use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
     use 'tpope/vim-surround'
     use {
         'numToStr/Comment.nvim',
@@ -201,7 +171,6 @@ return packer.startup(function(use)
     }
     use {
         'akinsho/toggleterm.nvim',
-        -- '~/dev/toggleterm.nvim',
         config = function()
             require 'config.plugins.toggleterm'
         end,
@@ -237,12 +206,6 @@ return packer.startup(function(use)
             require 'config.plugins.ts-rainbow'
         end,
     }
-    -- use {
-    --     'dstein64/nvim-scrollview',
-    --     config = function()
-    --         require 'config.plugins.scrollview'
-    --     end,
-    -- }
     -- use {
     --     'lukas-reineke/indent-blankline.nvim',
     --     config = function()

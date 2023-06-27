@@ -16,7 +16,6 @@ local function setup_colors()
         orange = utils.get_highlight("Keyword").fg,
         purple = utils.get_highlight("Constant").fg,
         blue = utils.get_highlight("Function").fg,
-        -- white = utils.get_highlight("Normal").fg,
         white = utils.get_highlight("StatusLine").fg,
         black = utils.get_highlight("Statusline").bg,
 
@@ -43,9 +42,6 @@ local space = { provider = " " }
 
 file.meta = utils.surround({ "(", ")" }, nil, file.meta)
 
--- git = utils.make_flexible_component(3, git, { provider = "" })
--- lsp.server_name = utils.make_flexible_component(4, lsp.server_name, { provider = "" })
--- file.meta = utils.make_flexible_component(5, file.meta, { provider = "" })
 git = { flexible = 3, git, { provider = "" } }
 lsp.server_name = { flexible = 4, lsp.server_name, { provider = "" } }
 file.meta = { flexible = 5, file.meta, { provider = "" } }

@@ -3,11 +3,17 @@ default-timeout=5000
 background-color=#121212FF
 border-color=#c4c4c4FF
 progress-color=#938c6cAA
-text-color=#c4c4c4FF
+text-color=#dadadaFF
+layer=overlay
 
 [summary=Volume]
-format=<b>%s</b>
-group-by=summary
+format=<b>%s</b>\n%b
+group-by=app-name
+
+[summary="Volume (muted)"]
+format=<b>%s</b>\n%b
+group-by=app-name
+progress-color=#6d6850AA
 
 [summary=Brightness]
 format=<b>%s</b>

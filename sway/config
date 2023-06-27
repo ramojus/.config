@@ -12,12 +12,8 @@ set $browser brave -enable-features=UseOzonePlatform -ozone-platform=wayland --d
 set $menu wofi --show drun
 
 xwayland enable
-# exec xsettingsd
-exec xrdb -merge ~/.Xresources
-exec xrandr --dpi 120
 
-exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec systemctl --user import-environment
 
 for_window [workspace="4"] floating enable
 for_window [workspace="5"] floating enable

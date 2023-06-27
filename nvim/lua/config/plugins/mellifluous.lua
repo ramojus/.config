@@ -28,28 +28,5 @@ require 'mellifluous'.setup {
     tender = { },
 }
 
--- local lush = require('lush')
--- local mellifluous_spec = require('mellifluous').load()
---
--- local new_spec = lush.extends({ mellifluous_spec }).with(function()
---     ---@diagnostic disable: undefined-global
---     return {
---         Exception { fg = '#FD1C35', },
---         LineNr { fg = '#FD1C35', },
---     }
--- end)
---
--- lush(new_spec)
-
 vim.cmd('colorscheme mellifluous')
 
--- vim.api.nvim_set_hl(0, "Exception", { fg = '#FD1C35' })
-
--- vim.opt.background = 'dark'
--- vim.cmd('colorscheme mellifluous')
--- vim.cmd('colorscheme mellifluous_fast')
-
--- vim.cmd('colorscheme mellifluous_built')
--- vim.cmd('colorscheme mellifluous_vim')
-
--- vim.cmd('colorscheme catppuccin')

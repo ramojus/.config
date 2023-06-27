@@ -29,13 +29,13 @@
         "format": "{:%b %d, %a  %H:%M}"
     },
     "battery": {
-        "format": "<span font='Fira Code Nerd Font 12'>{icon}</span> {capacity}% - {time}",
-        "format-icons": ["", "", "", "", "", "", "", "", "", ""],
+        "format": "<span font='Sauce Code Pro Nerd Font 12'>{icon}</span> {capacity}% - {time}",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
         "format-time": "{H}h{M}m",
-        "format-charging": "<span font='Fira Code Nerd Font 12'>{icon}</span> {capacity}% - {time}",
-        "format-full": "<span font='Fira Code Nerd Font 12'>{icon}</span> Charged",
-        "format-warning": "LOW <span font='Fira Code Nerd Font 12'>{icon}</span> {capacity}% - {time}",
-        "format-critical": "PLEASE CHARGE <span font='Fira Code Nerd Font 12'>{icon}</span> {capacity}% - {time}",
+        "format-charging": "<span font='Sauce Code Pro Nerd Font 12'>{icon}</span> {capacity}% - {time}",
+        "format-full": "<span font='Sauce Code Pro Nerd Font 12'>{icon}</span> Charged",
+        "format-warning": "LOW <span font='Sauce Code Pro Nerd Font 12'>{icon}</span> {capacity}% - {time}",
+        "format-critical": "PLEASE CHARGE <span font='Sauce Code Pro Nerd Font 12'>{icon}</span> {capacity}% - {time}",
         "interval": 30,
         "states": {
             "warning": 25,

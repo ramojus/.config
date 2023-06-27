@@ -1,9 +1,7 @@
 require('config.utils.disable_builtin')
 local utils = {}
 
-
 function utils.reload_config()
-    local hls_status = vim.v.hlsearch
     for name, _ in pairs(package.loaded) do
         if name:match('^config') and not (name:find('lsp') or name:find('plugins.cmp')) then
             package.loaded[name] = nil
@@ -11,9 +9,6 @@ function utils.reload_config()
     end
 
     dofile(vim.env.MYVIMRC)
-    if hls_status == 0 then
-        vim.opt.hlsearch = false
-    end
     vim.notify("Config reloaded")
 end
 

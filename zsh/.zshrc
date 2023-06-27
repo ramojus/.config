@@ -4,9 +4,6 @@
 # (cat ~/.cache/wal/sequences &)
 autoload -U colors && colors	# Load colors
 
-# nixos home-manager
-# source ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-
 # Syntax highlighting
 if ! [ -d ~/.config/zsh/zsh-syntax-highlighting ]; then
     mkdir -p ~/.config/zsh/zsh-syntax-highlighting
@@ -61,12 +58,12 @@ path+=('/home/ramojus/.local/bin/lsp')
 path+=('/home/ramojus/.local/bin/statusbar')
 path+=('/home/ramojus/.emacs.d/bin')
 path+=('/home/ramojus/.local/share/go/bin')
+
 export PATH
 
-source '/home/ramojus/.ghcup/env'
-source '/home/ramojus/.local/share/cargo/env'
-
-# alias mpv="flatpak run io.mpv.Mpv"
+# source '/home/ramojus/.ghcup/env'
+# source '/home/ramojus/.local/share/cargo/env'
+# source '~/.nix-profile/etc/profile.d/hm-session-vars.sh'
 
 distro=$(cat /etc/os-release | grep ^ID= | cut -d\" -f2 | cut -d= -f2)
 [[ $distro != "fedora" ]] && alias tmux="~/./appimages/tmux.appimage"
@@ -75,7 +72,7 @@ alias ls="ls --color=always"
 alias rm=trash
 alias git-bare="git --git-dir=./.git-bare/ --work-tree=."
 alias cdnotes='cd ~/site-notes/content/6'
-alias signal='flatpak run org.signal.Signal --enable-features=UseOzonePlatform --ozone-platform=wayland'
+# alias signal='flatpak run org.signal.Signal --enable-features=UseOzonePlatform --ozone-platform=wayland'
 
 # Load aliases and shortcuts if existent.
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc"

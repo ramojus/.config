@@ -51,7 +51,6 @@ seat * hide_cursor 8000
 # output eDP-1 pos 0 1080
 # output eDP-1 pos 0 0
 
-workspace 1 output eDP-1
 workspace 9 output eDP-1
 workspace 10 output eDP-1
 workspace 1 output DP-1

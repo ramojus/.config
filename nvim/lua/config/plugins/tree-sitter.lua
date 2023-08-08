@@ -1,23 +1,19 @@
-local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
+return {
+    'nvim-treesitter/nvim-treesitter',
+    build = ':TSUpdate',
+    -- event = { "BufReadPost", "BufNewFile" },
+    -- launch = ':TSEnable highlight',
+    version = false,
+    config = function()
+        local configs = require("nvim-treesitter.configs")
 
-parser_configs.norg = {
-    install_info = {
-        url = "https://github.com/nvim-neorg/tree-sitter-norg",
-        files = { "src/parser.c", "src/scanner.cc" },
-        branch = "main"
-    },
+        configs.setup({
+            ensure_installed = "all",
+            highlight = {
+                enable = true,
+                disable = {},
+            },
+            indent = { enable = true },
+        })
+    end
 }
-
--- vim.notify("before")
--- vim.notify("")
-
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "all", -- one of "all", or a list of languages
-  highlight = {
-    enable = true, -- false will disable the whole extension
-    disable = {}, -- list of language that will be disabled
-    -- additional_vim_regex_highlighting = false,
-  },
-}
-
-

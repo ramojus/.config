@@ -25,6 +25,40 @@ local function merge(...)
     return vim.tbl_deep_extend('force', ...)
 end
 
+function utils.get_map_func_for(plug_name, buffer)
+    return function(modes_str, keys, func, desc, extra_opts)
+        local modes = {}
+        for mode in modes_str:gmatch"." do
+            table.insert(modes, mode)
+        end
+
+        local opts = extra_opts or {}
+        if desc then
+            if plug_name then
+                opts.desc = plug_name .. ': ' .. desc
+            else
+                opts.desc = desc
+            end
+        end
+        if buffer then
+            opts.buffer = buffer
+        end
+
+        vim.keymap.set(modes, keys, func, opts)
+    end
+end
+
+function utils.get_lazy_keys_for(plug_name, lazy_keys)
+    for _, lazy_key in pairs(lazy_keys) do
+        if lazy_key.desc then
+            lazy_key.desc = plug_name .. ': ' .. lazy_key.desc
+        else
+            lazy_key.desc = plug_name
+        end
+    end
+    return lazy_keys
+end
+
 function utils.map(mode, lhs, rhs, opts)
     local options = { noremap = true, silent = true }
     if opts then

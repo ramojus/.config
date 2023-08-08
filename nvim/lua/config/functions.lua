@@ -1,6 +1,5 @@
 Bind_custom = vim.api.nvim_set_keymap
 
-
 function Reload_config()
     local hls_status = vim.v.hlsearch
     for name,_ in pairs(package.loaded) do

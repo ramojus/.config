@@ -68,9 +68,9 @@ export PATH
 distro=$(cat /etc/os-release | grep ^ID= | cut -d\" -f2 | cut -d= -f2)
 [[ $distro != "fedora" ]] && alias tmux="~/./appimages/tmux.appimage"
 
-alias ls="ls --color=always"
-alias rm=trash
-alias git-bare="git --git-dir=./.git-bare/ --work-tree=."
+alias ls='ls --color=always'
+alias tp='trash put'
+alias git-bare='git --git-dir=./.git-bare/ --work-tree=.'
 alias cdnotes='cd ~/site-notes/content/6'
 # alias signal='flatpak run org.signal.Signal --enable-features=UseOzonePlatform --ozone-platform=wayland'
 

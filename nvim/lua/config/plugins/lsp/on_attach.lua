@@ -11,7 +11,7 @@ local function lsp_highlight_document(client)
 end
 
 local function on_attach(client, bufnr)
-    require'config.lsp.keymaps'(bufnr)
+    require'config.plugins.lsp.keymaps'(bufnr)
     vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
     lsp_highlight_document(client)
     -- require 'nvim-navic'.attach(client, bufnr)

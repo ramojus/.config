@@ -1,1 +1,5 @@
-require"fidget".setup()
+return {
+    'j-hui/fidget.nvim',
+    tag = "legacy",
+    opts = {},
+}

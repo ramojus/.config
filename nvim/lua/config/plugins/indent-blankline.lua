@@ -1,5 +1,6 @@
 return {
-    'lukas-reineke/indent-blankline.nvim',
+    -- 'lukas-reineke/indent-blankline.nvim',
+    dir = '~/dev/indent-blankline.nvim',
     opts = {
         -- char = "▏",
         use_treesitter = true,

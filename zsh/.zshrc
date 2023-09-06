@@ -71,7 +71,7 @@ distro=$(cat /etc/os-release | grep ^ID= | cut -d\" -f2 | cut -d= -f2)
 alias ls='ls --color=always'
 alias tp='trash put'
 alias git-bare='git --git-dir=./.git-bare/ --work-tree=.'
-alias cdnotes='cd ~/site-notes/content/6'
+alias cdnotes='cd ~/site-notes/content/studijos/7'
 # alias signal='flatpak run org.signal.Signal --enable-features=UseOzonePlatform --ozone-platform=wayland'
 
 # Load aliases and shortcuts if existent.
@@ -148,19 +148,5 @@ bindkey '^[[P' delete-char
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/home/ramojus/mambaforge/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-# if [ $? -eq 0 ]; then
-#     eval "$__conda_setup"
-# else
-#     if [ -f "/home/ramojus/mambaforge/etc/profile.d/conda.sh" ]; then
-#         . "/home/ramojus/mambaforge/etc/profile.d/conda.sh"
-#     else
-#         export PATH="/home/ramojus/mambaforge/bin:$PATH"
-#     fi
-# fi
-# unset __conda_setup
-# <<< conda initialize <<<
-
+# opam configuration
+[[ ! -r /home/ramojus/.opam/opam-init/init.zsh ]] || source /home/ramojus/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null

@@ -20,5 +20,7 @@ zsh/zsh-syntax-highlighting/
 !alacritty/**
 !darkman/
 !darkman/**
+!home-manager/
+!home-manager/**
 !.gitignore
 !git

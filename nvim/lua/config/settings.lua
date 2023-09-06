@@ -20,7 +20,7 @@ opt.termguicolors = true
 opt.scrolloff = 2
 opt.sidescrolloff = 4
 opt.hidden = true
-opt.pumblend = 5 -- opacity level for completion menu
+-- opt.pumblend = 5 -- opacity level for completion menu
 
 opt.spelllang = "lt,en_us"
 -- opt.spell = true

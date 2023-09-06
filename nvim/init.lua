@@ -9,5 +9,7 @@ require('config.keys')
 -- require('config.lsp')
 require('config.auto')
 
-vim.cmd.colorscheme('mellifluous')
+vim.cmd.colorscheme('term-colors')
+-- vim.api.nvim_set_hl(0, 'IndentBlanklineContextChar', { ctermfg = 8 })
+-- vim.cmd('hi! IndentBlanklineContextChar ctermfg=8')
 

@@ -1,7 +1,26 @@
 return {
     'akinsho/toggleterm.nvim',
+    keys = function()
+        return require('utils').get_lazy_keys_for('toggleterm', {
+            -- { '<leader>gl', '<cmd>TermExec cmd="lazygit && exit" hidden=true direction=float<cr>', desc = 'open lazygit' },
+            {
+                '<leader>gl',
+                function()
+                    local lazygit_term = require('toggleterm.terminal').Terminal:new({
+                        cmd = 'lazygit',
+                        hidden = true,
+                        direction = 'float'
+                    })
+                    lazygit_term:toggle()
+                end,
+                desc = "toggle lazygit"
+            },
+            {
+                '<C-\\>', ':ToggleTerm<cr>', desc = "toggle"
+            }
+        })
+    end,
     opts = {
-
         -- size can be a number or function which is passed the current terminal
         size = function(term)
             if term.direction == "horizontal" then
@@ -10,7 +29,7 @@ return {
                 return vim.o.columns * 0.4
             end
         end,
-        open_mapping = [[<c-\>]],
+        open_mapping = [[<C-\>]],
         hide_numbers = true, -- hide the number column in toggleterm buffers
         -- shade_filetypes = { "none" },
         shade_terminals = true,
@@ -40,22 +59,4 @@ return {
             --         --   -- background = "Float",
         }
     },
-    keys = require('config.utils').get_lazy_keys_for('toggleterm', {
-        -- { '<leader>gl', '<cmd>TermExec cmd="lazygit && exit" hidden=true direction=float<cr>', desc = 'open lazygit' },
-        {
-            '<leader>gl',
-            function()
-                local lazygit_term = require('toggleterm.terminal').Terminal:new({
-                    cmd = 'lazygit',
-                    hidden = true,
-                    direction = 'float'
-                })
-                lazygit_term:toggle()
-            end,
-            desc = "toggle lazygit"
-        },
-        {
-            '<C-\\>', ':ToggleTerm<cr>', desc = "toggle"
-        }
-    }),
 }

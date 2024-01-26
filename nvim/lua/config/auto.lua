@@ -1,4 +1,4 @@
-local create_autocmd = require 'config.utils'.create_autocmd
+local create_autocmd = require 'utils'.create_autocmd
 
 -- go to last loc when opening a buffer
 create_autocmd(
@@ -10,19 +10,14 @@ create_autocmd(
 create_autocmd(
     "AutosaveMarkdown",
     "CursorHold",
-    { pattern = "*.md", command = "silent! wall" }
+    { pattern = "*.md,*.typ", command = "silent! update" }
 )
--- create_autocmd(
---     "AutosaveMarkdown",
---     "FileType",
---     { pattern = "markdown", command = "set awa" }
--- )
 
 create_autocmd(
     "ShorterTabLength",
     "FileType",
     {
-        pattern = "markdown,norg,xml,nix,haskell",
+        pattern = "norg,xml,nix,haskell",
         command = "setlocal shiftwidth=2 tabstop=2"
     }
 )
@@ -31,16 +26,7 @@ create_autocmd(
     "WrapText",
     "FileType",
     {
-        pattern = "markdown,norg,tex,text",
-        command = "setlocal wrap linebreak"
-    }
-)
-
-create_autocmd(
-    "WrapText",
-    "FileType",
-    {
-        pattern = "markdown,norg,tex,text",
+        pattern = "markdown,norg,tex,text,typst",
         command = "setlocal wrap linebreak"
     }
 )

@@ -1,4 +1,4 @@
-local map = require('config.utils').get_map_func_for()
+local map = require('utils').get_map_func_for()
 
 local function bind_undo_breakpoints(breakpoints)
     for b in breakpoints:gmatch"." do

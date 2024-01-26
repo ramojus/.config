@@ -1,4 +1,4 @@
-#files: 1040	version: 5.9
+#files: 1045	version: 5.9
 
 _comps=(
 '-' '_precommand'
@@ -511,6 +511,7 @@ _comps=(
 'ggetopt' '_getopt'
 'ggrep' '_grep'
 'ggv' '_gnome-gv'
+'gh' '_gh'
 'ghead' '_head'
 'ghostscript' '_ghostscript'
 'ghostview' '_pspdf'
@@ -987,7 +988,6 @@ _comps=(
 'nixos-option' '_nixos-option'
 'nixos-rebuild' '_nixos-rebuild'
 'nixos-version' '_nixos-version'
-'nixpkgs-review' '_nixpkgs-review'
 'nix-prefetch-url' '_nix-prefetch-url'
 'nix-push' '_nix-push'
 'nix-shell' '_nix-shell'
@@ -1414,6 +1414,7 @@ _comps=(
 'swanctl' '_swanctl'
 'sway' '_sway'
 'swayidle' '_swayidle'
+'swayimg' '_swayimg'
 'swaylock' '_swaylock'
 'swaymsg' '_swaymsg'
 'swift' '_swift'
@@ -1462,6 +1463,7 @@ _comps=(
 'tee' '_tee'
 'telnet' '_telnet'
 'tex' '_tex'
+'texdoc' '_texdoc'
 'texi2any' '_texinfo'
 'texi2dvi' '_texinfo'
 'texi2pdf' '_texinfo'
@@ -1519,6 +1521,7 @@ _comps=(
 'txt' '_hosts'
 'type' '_which'
 'typeset' '_typeset'
+'typst' '_typst'
 'udevadm' '_udevadm'
 'ulimit' '_ulimit'
 'uml_mconsole' '_uml'
@@ -1675,6 +1678,7 @@ _comps=(
 'wl-paste' '_wl-paste'
 'wodim' '_cdrecord'
 'wpa_cli' '_wpa_cli'
+'wpctl' '_wpctl'
 'write' '_users_on'
 'www' '_webbrowser'
 'xargs' '_xargs'
@@ -1749,6 +1753,7 @@ _comps=(
 'yum' '_yum'
 'yumdb' '_yum'
 'zargs' '_zargs'
+'zathura' '_zathura'
 'zcalc' '_zcalc'
 '-zcalc-line-' '_zcalc_line'
 'zcat' '_zcat'
@@ -1912,21 +1917,22 @@ bindkey '^[,' _history-complete-newer
 bindkey '^[/' _history-complete-older
 bindkey '^[~' _bash_complete-word
 
-autoload -Uz _cargo _fd _flyctl _home-manager _hugo \
-            _mpv _nnn _rg _rustup _trash \
+autoload -Uz _cargo _fd _flyctl _gh _home-manager \
+            _hugo _mpv _nnn _rg _rustup \
+            _swayimg _texdoc _trash _typst _zathura \
             _stack _bluetoothctl _bootctl _busctl _coredumpctl \
             _foot _footclient _home-manager _hostnamectl _journalctl \
             _localectl _loginctl _machinectl _mako _makoctl \
             _networkctl _nix _nix-build _nix-channel _nix-collect-garbage \
             _nix-common-options _nix-copy-closure _nix-env _nix-hash _nix-install-package \
             _nix-instantiate _nixops _nixos-build-vms _nixos-container _nixos-generate-config \
-            _nixos-install _nixos-option _nixos-rebuild _nixos-version _nixpkgs-review \
-            _nix-prefetch-url _nix-push _nix-shell _nix-store _oomctl \
-            _resolvectl _sd_hosts_or_user_at_host _sd_machines _sd_outputmodes _sd_unit_files \
-            _sway _swayidle _swaylock _swaymsg _systemctl \
-            _systemd _systemd-analyze _systemd-delta _systemd-inhibit _systemd-nspawn \
-            _systemd-path _systemd-run _systemd-tmpfiles _timedatectl _udevadm \
-            _wl-copy _wl-paste _cdr _floppy _logical_volumes \
+            _nixos-install _nixos-option _nixos-rebuild _nixos-version _nix-prefetch-url \
+            _nix-push _nix-shell _nix-store _oomctl _resolvectl \
+            _sd_hosts_or_user_at_host _sd_machines _sd_outputmodes _sd_unit_files _sway \
+            _swayidle _swaylock _swaymsg _systemctl _systemd \
+            _systemd-analyze _systemd-delta _systemd-inhibit _systemd-nspawn _systemd-path \
+            _systemd-run _systemd-tmpfiles _timedatectl _udevadm _wl-copy \
+            _wl-paste _wpctl _cdr _floppy _logical_volumes \
             _lscfg _lsdev _lslv _lspv _lsvg \
             _object_classes _physical_volumes _smit _volume_groups _bsdconfig \
             _bsd_disks _bsdinstall _bsd_pkg _chflags _csup \

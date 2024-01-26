@@ -62,9 +62,28 @@ workspace 6 output DP-1
 workspace 7 output DP-1
 workspace 8 output DP-1
 
+workspace 1
+
 bar {
     swaybar_command waybar
 }
 
 include /etc/sway/config.d/*
 include ~/.config/sway/config.d/*
+
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
+#   configure-gtk = pkgs.writeTextFile {
+#       name = "configure-gtk";
+#       destination = "/bin/configure-gtk";
+#       executable = true;
+#       text = let
+#         schema = pkgs.gsettings-desktop-schemas;
+#         datadir = "${schema}/share/gsettings-schemas/${schema.name}";
+#       in ''
+#         export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS
+#         '';
+#   };
+
+
+# WEBKIT_FORCE_SANDBOX=0 gnome-control-center online-accounts

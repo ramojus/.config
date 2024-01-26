@@ -8,6 +8,7 @@ bindsym $mod+$alt+f exec $term --o=colors.alpha=$trans -e nnn
 bindsym $mod+$alt+c exec $term --o=colors.alpha=$trans -e qalc
 bindsym $mod+$alt+n exec obsidian
 bindsym $mod+space exec ulauncher-toggle
+bindsym $mod+Control+space exec "pkill ulauncher; ulauncher &"
 bindsym $mod+z exec sleep 0.2 && systemctl suspend
 
 mode "record" {

@@ -1,4 +1,4 @@
-require('config.utils.disable_builtin')
+require('utils.disable_builtin')
 local utils = {}
 
 function utils.reload_config()

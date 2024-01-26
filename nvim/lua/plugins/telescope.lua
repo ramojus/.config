@@ -1,18 +1,20 @@
 return {
     'nvim-telescope/telescope.nvim',
-    keys = require('config.utils').get_lazy_keys_for('telescope', {
-        { '<leader>ff', require('telescope.builtin').find_files, desc = 'files' },
-        { '<leader>fF', ':Telescope find_files cwd=~ hidden=1<cr>', desc = 'files from home' },
-        { '<leader>fc', ':Telescope find_files cwd=~/.config<cr>', desc = 'files from .config' },
-        { '<leader>fg', require('telescope.builtin').live_grep, desc = 'grep in pwd' },
-        { '<leader>fb', require('telescope.builtin').buffers, desc = 'buffers' },
-        { '<leader>fh', require('telescope.builtin').help_tags, desc = 'help tags' },
-        { '<leader>fH', require('telescope.builtin').highlights, desc = 'highlights' },
-        { '<leader>fp', require('telescope.builtin').planets, desc = 'planets' },
-        { '<leader>fm', require('telescope.builtin').man_pages, desc = 'man pages' },
-        { '<leader>fr', require('telescope.builtin').reloader, desc = 'reloader' },
-        { '<leader>fk', require('telescope.builtin').keymaps, desc = 'keymaps' },
-    }),
+    keys = function()
+        return require('utils').get_lazy_keys_for('telescope', {
+            { '<leader>ff', require('telescope.builtin').find_files, desc = 'files' },
+            { '<leader>fF', ':Telescope find_files cwd=~ hidden=1<cr>', desc = 'files from home' },
+            { '<leader>fc', ':Telescope find_files cwd=~/.config<cr>', desc = 'files from .config' },
+            { '<leader>fg', require('telescope.builtin').live_grep, desc = 'grep in pwd' },
+            { '<leader>fb', require('telescope.builtin').buffers, desc = 'buffers' },
+            { '<leader>fh', require('telescope.builtin').help_tags, desc = 'help tags' },
+            { '<leader>fH', require('telescope.builtin').highlights, desc = 'highlights' },
+            { '<leader>fp', require('telescope.builtin').planets, desc = 'planets' },
+            { '<leader>fm', require('telescope.builtin').man_pages, desc = 'man pages' },
+            { '<leader>fr', require('telescope.builtin').reloader, desc = 'reloader' },
+            { '<leader>fk', require('telescope.builtin').keymaps, desc = 'keymaps' },
+        })
+    end,
     opts = function()
         local actions = require('telescope.actions')
         return {

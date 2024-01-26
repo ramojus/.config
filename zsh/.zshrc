@@ -58,6 +58,7 @@ path+=('/home/ramojus/.local/bin/lsp')
 path+=('/home/ramojus/.local/bin/statusbar')
 path+=('/home/ramojus/.emacs.d/bin')
 path+=('/home/ramojus/.local/share/go/bin')
+path+=('/home/ramojus/.cargo/bin')
 
 export PATH
 

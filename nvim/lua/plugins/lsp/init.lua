@@ -7,7 +7,7 @@ return {
         'hrsh7th/cmp-nvim-lsp',
     },
     init = function()
-        require('config.plugins.lsp.mason')
-        require('config.plugins.lsp.config')
+        require('plugins.lsp.mason')
+        require('plugins.lsp.config')
     end,
 }

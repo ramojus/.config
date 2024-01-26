@@ -1,7 +1,7 @@
 return {
     'rebelot/heirline.nvim',
     dependencies = {
-        'kyazdani42/nvim-web-devicons'
+        'nvim-tree/nvim-web-devicons'
     },
     init = function()
         local status_ok, heirline = pcall(require, "heirline")
@@ -37,11 +37,10 @@ return {
 
         heirline.load_colors(setup_colors())
 
-        local mode = require 'config.plugins.heirline.mode'
-        local file = require 'config.plugins.heirline.file' (utils)
-        local git = require 'config.plugins.heirline.git' (conditions)
-        local lsp = require 'config.plugins.heirline.lsp' (conditions)
-
+        local mode = require 'plugins.heirline.mode'
+        local file = require 'plugins.heirline.file' (utils)
+        local git = require 'plugins.heirline.git' (conditions)
+        local lsp = require 'plugins.heirline.lsp' (conditions)
 
         local align = { provider = "%=" }
         local space = { provider = " " }
@@ -77,7 +76,7 @@ return {
         local file_explorer_statusline = {
             condition = function()
                 return conditions.buffer_matches({
-                    filetype = { "NvimTree" },
+                    filetype = { "NvimTree", "neo%-tree" },
                 })
             end,
 

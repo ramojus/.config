@@ -1,21 +1,18 @@
 output * bg ~/wallpapers/wallpaper.jpg fill
-# exec_always swaybg -m fill -o "*" -i ~/wallpapers/wallpaper.jpg
 
-# corner_radius 8
+# corner_radius 2
 # shadows on
 # shadow_blur_radius 20
 # shadow_color #0000009F
 # shadows_on_csd on
-# default_border pixel 1
+default_border pixel 1
 
 title_align left
 titlebar_border_thickness 0
 titlebar_padding 10 3
 font "Roboto 10"
 default_border normal 1
-# client.focused #292624 #292624 #aaaaaa #292624
-# set $main_color #8f875f
-# set $main_color #958562
+
 set $main_color #938c6c
 client.focused $main_color $main_color #1a1a1a $main_color
 client.unfocused #1f1f1f #1f1f1f #606060 #1f1f1f
@@ -27,6 +24,13 @@ for_window [class="Emacs"] border pixel 1
 for_window [class="obsidian"] border normal 1
 for_window [app_id="ulauncher"] border none
 for_window [app_id="brave-browser"] border none
+for_window [app_id="firefox"] border none
+# for_window [app_id="firefox"] {
+#     floating enable
+#     border none
+#     resize set width 100 ppt height 100 ppt
+#     move position center
+# }
 # for_window [app_id="firefox"] saturation set 0.0
 
 # set $cursor_theme elementary
@@ -37,19 +41,15 @@ seat seat0 xcursor_theme $cursor_theme $cursor_size
 
 set $gnome-schema org.gnome.desktop.interface
 exec_always {
-    # gsettings set org.gtk.Settings.FileChooser window-size '(400,640)'
-    gsettings set $gnome-schema gtk-theme 'adw-gtk3'
-    # gsettings set $gnome-schema gtk-theme 'Lounge-night-compact'
-    # gsettings set $gnome-schema gtk-theme 'Mint-Y-Dark-Purple'
-    # gsettings set $gnome-schema icon-theme 'Paper-Mono-Dark'
+    gsettings set $gnome-schema gtk-theme 'Adwaita-dark'
     gsettings set $gnome-schema icon-theme 'Adwaita'
     gsettings set $gnome-schema cursor-theme '$cursor_theme'
     gsettings set $gnome-schema cursor-size $cursor_size
-    gsettings set $gnome-schema font-name 'Source Sans Pro, 11'
+    gsettings set $gnome-schema font-name 'Ubuntu'
     gsettings set $gnome-schema text-scaling-factor 1.0
+    gsettings set $gnome-schema color-scheme 'prefer-dark'
 }
 
-smart_gaps on
-gaps outer 8
-gaps inner 8
+smart_gaps off
+gaps outer 12
 

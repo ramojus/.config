@@ -66,17 +66,6 @@ map('n', "j",     [[(v:count > 5 ? "m'" . v:count : "") . 'j']], 'if the count i
 
 --                  Telescope
 ---------------------------------------------------------
-map('n', '<leader>ff',  require('telescope.builtin').find_files)
-map('n', '<leader>fF',  ':Telescope find_files cwd=~ hidden=1<cr>')
-map('n', '<leader>fc',  ':Telescope find_files cwd=~/.config<cr>')
-map('n', '<leader>fg',  require('telescope.builtin').live_grep)
-map('n', '<leader>fb',  require('telescope.builtin').buffers)
-map('n', '<leader>fh',  require('telescope.builtin').help_tags)
-map('n', '<leader>fH',  require('telescope.builtin').highlights)
-map('n', '<leader>fp',  require('telescope.builtin').planets)
-map('n', '<leader>fm',  require('telescope.builtin').man_pages)
-map('n', '<leader>fr',  require('telescope.builtin').reloader)
-
 
 --                  Harpoon
 ---------------------------------------------------------

@@ -1,6 +1,6 @@
 return {
-    -- 'ramojus/mellifluous.nvim',
-    dir = '~/dev/mellifluous.nvim',
+    'ramojus/mellifluous.nvim',
+    -- dir = '~/dev/mellifluous.nvim',
     lazy = true,
     opts = {
         color_set = 'mellifluous',

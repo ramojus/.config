@@ -12,11 +12,15 @@ local ensure_installed = {
     "typst_lsp",
 }
 
-local installed_by_system = {
+local installed_by_nix = {
     'hls',
     'ocamllsp',
     "lua_ls",
 }
+
+if not os.getenv('NIX_PATH') then
+    ensure_installed = vim.tbl_extend('force', ensure_installed, installed_by_nix)
+end
 
 require 'mason'.setup {
     PATH = "append"
@@ -32,7 +36,7 @@ if not lspconfig_status_ok then
     return
 end
 
-for _, server in pairs(vim.tbl_extend('force', ensure_installed, installed_by_system)) do
+for _, server in pairs(vim.tbl_extend('force', ensure_installed, installed_by_nix)) do
     local opts = {
         on_attach = require'plugins.lsp.on_attach',
         capabilities = vim.lsp.protocol.make_client_capabilities(),

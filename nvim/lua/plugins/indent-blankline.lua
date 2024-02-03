@@ -1,14 +1,18 @@
 return {
-    -- 'lukas-reineke/indent-blankline.nvim',
-    dir = '~/dev/indent-blankline.nvim',
+    'lukas-reineke/indent-blankline.nvim',
+    -- dir = '~/dev/indent-blankline.nvim',
+    main = "ibl",
+    version = "3.*",
     opts = {
-        -- char = "▏",
-        use_treesitter = true,
-        show_current_context = true,
-        buftype_exclude = { "terminal" },
-        filetype_exclude = { "norg" },
-        max_indent_increase = 1,
-        show_trailing_blankline_indent = false,
-        -- show_current_context_start = true,
+        scope = {
+            enabled = true,
+        },
+        exclude = {
+            filetypes = { "norg" },
+            buftypes = { "terminal" },
+        },
+        viewport_buffer = {
+            max = 1,
+        },
     }
 }

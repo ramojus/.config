@@ -9,13 +9,13 @@ local ensure_installed = {
     "eslint",
     "julials",
     "gopls",
-    "typst_lsp",
 }
 
 local installed_by_nix = {
     'hls',
     'ocamllsp',
-    "lua_ls",
+    'lua_ls',
+    'typst_lsp'
 }
 
 if not os.getenv('NIX_PATH') then

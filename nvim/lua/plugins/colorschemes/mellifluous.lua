@@ -1,7 +1,8 @@
 return {
-    'ramojus/mellifluous.nvim',
-    -- dir = '~/dev/mellifluous.nvim',
+    -- 'ramojus/mellifluous.nvim',
+    dir = '~/dev/mellifluous.nvim',
     lazy = true,
+    version = "v0.*", -- uncomment for stable config (some features might be missed if/when v2 comes out)
     opts = {
         color_set = 'mellifluous',
         mellifluous = {

@@ -2,10 +2,11 @@ return {
     'lukas-reineke/indent-blankline.nvim',
     -- dir = '~/dev/indent-blankline.nvim',
     main = "ibl",
-    version = "3.*",
+    version = "v3.*",
     opts = {
         scope = {
             enabled = true,
+            show_start = false,
         },
         exclude = {
             filetypes = { "norg" },

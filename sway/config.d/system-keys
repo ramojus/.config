@@ -19,8 +19,8 @@ bindsym shift+$alt+Print exec ~/.local/bin/scripts/screenshot screen file
 
 # for a dumb camera key on my mx keys mini
 bindsym $mod+shift+s exec ~/.local/bin/scripts/screenshot selection clipboard
-bindsym Control+$mod+shift+s exec ~/.local/bin/scripts/screenshot selection file
-bindsym $mod+$alt+shift+s exec ~/.local/bin/scripts/screenshot window clipboard
+bindsym $mod+$alt+shift+s exec ~/.local/bin/scripts/screenshot selection file
+bindsym $mod+Control+shift+s exec ~/.local/bin/scripts/screenshot window clipboard
 bindsym $mod+Control+$alt+shift+s exec ~/.local/bin/scripts/screenshot window file
 bindsym $mod+shift+f exec ~/.local/bin/scripts/screenshot screen clipboard
 bindsym $mod+$alt+shift+f exec ~/.local/bin/scripts/screenshot screen file

@@ -52,15 +52,15 @@ if ! [ -d ~/.cache/zsh/ ]; then
     mkdir -p ~/.cache/zsh
 fi
 
-path+=('/home/ramojus/.local/bin')
-path+=('/home/ramojus/.local/bin/scripts')
+path+=("$HOME/.local/bin")
+path+=("$HOME/.local/bin/scripts")
 path+=('/home/ramojus/.local/bin/lsp')
 path+=('/home/ramojus/.local/bin/statusbar')
 path+=('/home/ramojus/.emacs.d/bin')
 path+=('/home/ramojus/.local/share/go/bin')
 path+=('/home/ramojus/.cargo/bin')
 
-export PATH
+export path
 
 # source '/home/ramojus/.ghcup/env'
 # source '/home/ramojus/.local/share/cargo/env'
@@ -137,6 +137,11 @@ n () {
             . "$NNN_TMPFILE"
             rm -f "$NNN_TMPFILE" > /dev/null
     fi
+}
+
+# shell integration for foot terminal (jumping between commands with ctrl+shift+z/x)
+precmd() {
+    print -Pn "\e]133;A\e\\"
 }
 
 export FZF_DEFAULT_OPTS="--height=40% --layout=reverse"

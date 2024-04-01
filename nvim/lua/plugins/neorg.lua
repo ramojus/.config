@@ -5,6 +5,7 @@ return {
     keys = require('utils').get_lazy_keys_for('neorg', {
         { '<leader>n', ':Neorg wor' }
     }),
+    cmd = 'Neorg',
     opts = {
         load = {
             ["core.defaults"] = {},
@@ -14,6 +15,7 @@ return {
                         diary = "~/notes/diary",
                         home = "~/notes/",
                         work = "~/notes/work",
+                        studies = "~/notes/studies"
                     },
                     default_workspace = "home"
                 }
@@ -21,12 +23,12 @@ return {
             ["core.concealer"] = {
                 config = {
                     icons = {
-                        heading = {
-                            -- icons = { '⹃' }
-                            icons = { ' ' }
-                        },
+                        -- heading = {
+                        --     -- icons = { ' ' }
+                        -- },
                         todo = false,
-                    }
+                    },
+                    icon_preset = 'diamond'
                 }
             },
             ["core.journal"] = {

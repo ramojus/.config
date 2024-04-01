@@ -51,5 +51,6 @@ exec_always {
 }
 
 smart_gaps off
-gaps outer 12
+gaps outer $outer_gaps
+gaps inner $inner_gaps
 

@@ -1,6 +1,6 @@
 input * xkb_layout us,lt
 # input * xkb_options grp:shifts_toggle,caps:escape,altwin:swap_alt_win
-input * xkb_options grp:shifts_toggle,caps:escape
+input * xkb_options grp:shifts_toggle,grp_led:caps,caps:escape
 
 input type:touchpad {
     dwt enabled

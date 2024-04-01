@@ -107,6 +107,9 @@ map('v', '<C-s>',       [[:s/<C-r>0//g<left><left>]])
 -- mouse scrolling (with opt.mouse = "")
 map('n', '<Up>', '<C-y>')
 map('n', '<Down>', '<C-e>')
+map('n', 'k', "v:count == 0 ? 'gk' : 'k'", '', { expr = true, silent = true })
+map('n', 'j', "v:count == 0 ? 'gj' : 'j'", '', { expr = true, silent = true })
+
 
 --                  Snippets
 ---------------------------------------------------------

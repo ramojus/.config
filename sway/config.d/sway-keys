@@ -33,9 +33,7 @@ bindsym $mod+Control+$alt+s mark --toggle "saturation" ; [con_id=__focused__] sa
 bindsym --whole-window $alt+button4 saturation plus 0.02
 bindsym --whole-window $alt+button5 saturation minus 0.02
 
-# Workspaces:
 bindcode {
-    # Switch to workspace
     $mod+24 workspace 1
     $mod+25 workspace 2
     $mod+26 workspace 3
@@ -46,8 +44,7 @@ bindcode {
     $mod+12 workspace 8
     $mod+13 workspace 9
     $mod+14 workspace 10
-    
-    # Move focused container to workspace
+
     $mod+Shift+24 move container to workspace 1
     $mod+Shift+25 move container to workspace 2
     $mod+Shift+26 move container to workspace 3
@@ -70,12 +67,24 @@ bindsym $mod+s layout toggle tabbed stacking split
 bindsym $mod+f fullscreen
 bindsym $mod+c move position center
 bindsym $mod+Shift+space floating toggle
-bindsym $mod+Control+S sticky toggle
+bindsym $mod+Control+s sticky toggle
 
 # bindsym $mod+Shift+space focus mode_toggle
 bindsym $mod+a focus parent
+bindsym $mod+d focus child
 
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
+bindsym $mod+g mode gaps
+mode gaps {
+    bindsym equal gaps outer current plus 4
+    bindsym minus gaps outer current minus 4
+    bindsym $alt+equal gaps inner current plus 4
+    bindsym $alt+minus gaps inner current minus 4
+    bindsym n gaps outer current set 0 ; gaps inner current set 0
+    bindsym r gaps outer current set $outer_gaps ; gaps inner current set $inner_gaps
+
+    bindsym $mod+g mode "default"
+}
 

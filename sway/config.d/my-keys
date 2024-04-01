@@ -1,8 +1,6 @@
 bindsym $mod+shift+Return exec $term
-set $trans 0.92
-bindsym $mod+Return exec $term --o=colors.alpha=$trans
+bindsym $mod+Return exec $term --o=colors.alpha=$term-trans
 bindsym $mod+alt+w exec $browser
-bindsym $mod+d exec $menu
 bindsym $mod+$alt+i exec echo "💩\n👍" | wofi -d | wl-copy
 bindsym $mod+$alt+f exec $term --o=colors.alpha=$trans -e nnn
 bindsym $mod+$alt+c exec $term --o=colors.alpha=$trans -e qalc

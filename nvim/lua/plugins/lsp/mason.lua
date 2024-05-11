@@ -15,10 +15,17 @@ local installed_by_nix = {
     'hls',
     'ocamllsp',
     'lua_ls',
-    'typst_lsp'
+    -- 'typst_lsp',
+    'tsserver'
 }
 
-if not os.getenv('NIX_PATH') then
+local only_on_nix = {
+    'nil_ls'
+}
+
+if os.getenv('NIX_PATH') then
+    installed_by_nix = vim.tbl_extend('force', installed_by_nix, only_on_nix)
+else
     ensure_installed = vim.tbl_extend('force', ensure_installed, installed_by_nix)
 end
 

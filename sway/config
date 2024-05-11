@@ -9,7 +9,6 @@ set $right l
 
 set $term-trans 0.92
 set $term foot
-set $browser brave -enable-features=UseOzonePlatform -ozone-platform=wayland --disable-gpu-memory-buffer-video-frames
 set $outer_gaps 12
 set $inner_gaps 0
 

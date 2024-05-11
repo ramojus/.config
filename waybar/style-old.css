@@ -1,0 +1,102 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "monospace";
+    font-size: 14px;
+    min-height: 23px;
+    color: #0f0f0f;
+}
+
+window#waybar {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    text-shadow: none;
+    transition-duration: 0s;
+    color: white;
+    background: #c4c4c4;
+    border: 1px solid rgba(40, 40, 40, 0.25);
+}
+
+
+#clock,
+#mode,
+#language,
+#workspaces button,
+#tags button
+{
+    padding-top: 1px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-bottom: 0px;
+}
+
+#workspaces button,
+#tags button {
+    border: 1.0px solid transparent;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+#workspaces button:hover,
+#tags button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
+    background: rgba(40, 40, 40, 0.2)
+}
+
+#tags button.occupied {
+    color: #555555;
+}
+
+#mode,
+.timer-on,
+#language,
+#workspaces button.focused,
+#tags button.focused {
+    border-left: 1.0px solid rgba(0, 0, 0, 0.25);
+    border-right: 1.0px solid rgba(0, 0, 0, 0.25);
+    background: rgba(0, 0, 0, 0.10);
+}
+
+#workspaces button.urgent,
+#tags button.urgent {
+    background-color: #aa8888;
+    color: black;
+}
+
+#mode {
+    margin-left: 8px;
+}
+
+#custom-timer {
+    margin-right: 8px;
+}
+
+.timer-off {
+    border: 1px solid transparent;
+}
+
+/* uses span with nerd font for the icon and the spacing is a different here somehow */
+#custom-timer,
+#battery {
+    padding-top: 0px;
+}
+
+#custom-timer,
+#battery {
+    padding-right: 8px;
+    padding-left: 8px;
+}
+
+#language {
+    padding-left: 6px;
+    padding-right: 6px;
+    margin-right: 10px;
+}
+
+#tags button {
+    display: none,
+}
+
+#tags button.focused
+#tags button.urgent

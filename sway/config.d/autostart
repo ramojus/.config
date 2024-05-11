@@ -5,3 +5,4 @@ exec bluetoothctl power on
 exec dex --autostart & # launch desktop autostart entries (/run/current/system/sw/etc/xdg/autostart/)
 exec ulauncher --hide-window &
 exec SIGNAL_USE_WAYLAND=1 signal-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland --start-in-tray &
+exec uair &

@@ -1,21 +1,37 @@
-font=Roboto 10
+font=Roboto 9
 default-timeout=5000
 background-color=#121212FF
-border-color=#c4c4c4FF
+border-color=#949494
 progress-color=#938c6cAA
 text-color=#dadadaFF
 layer=overlay
+border-radius=4
+border-size=2
+outer-margin=24,16
 
-[summary=Volume]
+# a hack - setting invisible=0 later on ignores grouping, so I'm using this as an alternative
+[mode=do-not-disturb]
+format=\n
+border-color=#00000000
+background-color=#00000000
+layer=background
+max-visible=-1
+
+# reset the styling for system notifications (should always be visible)
+[summary~=(Volume.*)|(Screenshot.*)]
+background-color=#121212FF
+border-color=#949494
+format=<b>%s</b>\n%b
+layer=overlay
+
+[summary~=Volume.*]
 format=<b>%s</b>\n%b
 group-by=app-name
 
 [summary="Volume (muted)"]
-format=<b>%s</b>\n%b
-group-by=app-name
 progress-color=#6d6850AA
 
-[summary=Brightness]
+[summary="Brightness"]
 format=<b>%s</b>
 group-by=summary
 

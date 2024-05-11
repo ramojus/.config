@@ -15,7 +15,10 @@ source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 PROMPT="%{$fg[cyan]%}%c%{$fg_bold[yellow]%}"
 
 # title
-precmd () {print -Pn "\e]0;${PWD/$HOME/\~}\a"}
+# precmd () {print -Pn "\e]0;${PWD/$HOME/\~}\a"} # does not work anymore
+show_title() {print -Pn "\e]0;${PWD/$HOME/\~}\a"}
+add-zsh-hook chpwd show_title
+show_title
 
 autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }

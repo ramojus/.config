@@ -3,9 +3,15 @@
     "modules-left": [
     	"sway/workspaces",
     	"sway/mode",
+        "river/tags"
+        // "river/window"
     ],
     "modules-center": ["clock"],
-    "modules-right": ["battery"],
+    "modules-right": [
+        "sway/language",
+        "custom/timer",
+        "battery",
+    ],
     "sway/workspaces": {
          "disable-scroll": true,
          "disable-markup" : false,
@@ -23,10 +29,15 @@
              "9": "4",
              "10": "5",
          }
-     },
-    "height": 18,
+    },
+    "river/tags": {
+        "tag-labels": ["q", "w", "e", "r", "t", "1", "2", "3", "4", "5"],
+    },
+    "river/window": {
+        "max-length": 80,
+    },
     "clock": {
-        "format": "{:%b %d, %a  %H:%M}"
+        "format": "{:L%b %d, %a  %H:%M}",
     },
     "battery": {
         "format": "<span font='Sauce Code Pro Nerd Font 12'>{icon}</span> {capacity}% - {time}",
@@ -36,13 +47,26 @@
         "format-full": "<span font='Sauce Code Pro Nerd Font 12'>{icon}</span> Charged",
         "format-warning": "LOW <span font='Sauce Code Pro Nerd Font 12'>{icon}</span> {capacity}% - {time}",
         "format-critical": "PLEASE CHARGE <span font='Sauce Code Pro Nerd Font 12'>{icon}</span> {capacity}% - {time}",
-        "interval": 30,
+        "interval": 10,
         "states": {
             "warning": 25,
             "critical": 10
         },
         "tooltip": false
-	}
+	},
+    "sway/language": {
+        // "format": "<span font='Sauce Code Pro Nerd Font 12'></span> {short}",
+        "format": "{short}",
+    },
+    "custom/timer": {
+        "format": "<span font='Sauce Code Pro Nerd Font 12'>󱎫</span> {}",
+        "return-type": "json",
+        "exec": "~/.local/bin/scripts/uair_listener",
+        "on-click": "uairctl toggle",
+        "on-scroll-down": "uairctl next",
+        "on-scroll-up": "uairctl prev",
+        "tooltip": false,
+    },
 }
 
 // vim: set syntax=json:

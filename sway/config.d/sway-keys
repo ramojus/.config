@@ -1,7 +1,7 @@
-bindsym $mod+Control+q kill
+bindsym $mod+d kill
 floating_modifier $mod normal
 bindsym $mod+Control+c reload
-bindsym $mod+Control+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+bindsym $mod+Control+Shift+e exec swaymsg exit
 
 bindsym $mod+$left focus left
 bindsym $mod+$down focus down
@@ -71,7 +71,7 @@ bindsym $mod+Control+s sticky toggle
 
 # bindsym $mod+Shift+space focus mode_toggle
 bindsym $mod+a focus parent
-bindsym $mod+d focus child
+bindsym $mod+shift+a focus child
 
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show

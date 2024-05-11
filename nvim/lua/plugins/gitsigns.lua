@@ -8,8 +8,8 @@ return {
             end
             vim.keymap.set('n', '<leader>ga', require('gitsigns').stage_hunk, {})
             vim.keymap.set('n', '<leader>gp', require('gitsigns').preview_hunk, {})
-            vim.keymap.set('n', '[g', require('gitsigns').next_hunk, {})
-            vim.keymap.set('n', ']g', require('gitsigns').prev_hunk, {})
+            vim.keymap.set('n', ']g', require('gitsigns').next_hunk, {})
+            vim.keymap.set('n', '[g', require('gitsigns').prev_hunk, {})
         end
     }
 }

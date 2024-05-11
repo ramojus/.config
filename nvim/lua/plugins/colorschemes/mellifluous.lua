@@ -1,9 +1,11 @@
 return {
     -- 'ramojus/mellifluous.nvim',
-    dir = '~/dev/mellifluous.nvim',
+    -- dir = '~/dev/mellifluous.nvim',
+    dir = '~/dev/notify-mellifluous.nvim',
     lazy = true,
     version = "v0.*", -- uncomment for stable config (some features might be missed if/when v2 comes out)
-    opts = {
+    config = function()
+    require('mellifluous').setup({
         color_set = 'mellifluous',
         mellifluous = {
             highlight_overrides = {
@@ -46,5 +48,6 @@ return {
             --     hl.set('Search', { link = hl.get('IncSearch')})
             -- end,
         }
-    },
+    })
+    end,
 }

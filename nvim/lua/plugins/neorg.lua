@@ -1,6 +1,7 @@
 return {
     "nvim-neorg/neorg",
-    build = ':Neorg sync-parsers',
+    dependencies = { "luarocks.nvim" },
+    -- build = ':Neorg sync-parsers',
     ft = 'norg',
     keys = require('utils').get_lazy_keys_for('neorg', {
         { '<leader>n', ':Neorg wor' }

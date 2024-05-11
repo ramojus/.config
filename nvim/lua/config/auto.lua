@@ -17,7 +17,7 @@ create_autocmd(
     "ShorterTabLength",
     "FileType",
     {
-        pattern = "norg,xml,nix,haskell",
+        pattern = "norg,xml,nix,haskell,javascript,typst",
         command = "setlocal shiftwidth=2 tabstop=2"
     }
 )
@@ -32,11 +32,19 @@ create_autocmd(
 )
 
 create_autocmd(
-    "PrologHighlight",
+    "PrologFileType",
     "BufEnter",
     {
         pattern = "*.pl",
         command = "setlocal filetype=prolog"
+    }
+)
+create_autocmd(
+    "TypstFileType",
+    "BufEnter",
+    {
+        pattern = "*.typ",
+        command = "setlocal filetype=typst"
     }
 )
 

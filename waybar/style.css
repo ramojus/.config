@@ -1,76 +1,68 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: "monospace";
+    min-height: 24px;
+    margin: 0;
+    padding: 0;
+
+    /* font-family: "Monospace"; */
+    font-family: Iosevka;
+    font-weight: bold;
     font-size: 14px;
-    min-height: 23px;
-    color: #0f0f0f;
+    /* color: #0f0f0f; */
+    color: #373737;
 }
 
 window#waybar {
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-    text-shadow: none;
-    transition-duration: 0s;
-    color: white;
-    background: #c4c4c4;
+    background-color: #c4c4c4;
     border: 1px solid rgba(40, 40, 40, 0.25);
 }
 
-
-#battery {
-    margin-right: 8px;
+label {
+    padding-top: 1px;
+    padding-left: 7px;
+    padding-right: 7px;
 }
 
-#battery,
-#clock,
-#mode,
-#workspaces button,
-#tags button
-{
-    padding-top: 1px;
+label.module {
+    margin-left: 8px;
+    margin-right: 8px;
     padding-left: 4px;
     padding-right: 4px;
-    padding-bottom: 0px;
 }
 
-#workspaces button,
-#tags button {
-    /* padding: 1px 3px 0px 3px; */
-    /* padding: 0px 3px; */
-    border: 1.0px solid transparent;
+button,
+.timer-off
+{
+    border-right: 1px solid transparent;
+    border-left: 1px solid transparent;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-#workspaces button:hover,
-#tags button:hover {
+button:hover {
     box-shadow: inherit;
     text-shadow: inherit;
-    background: rgba(40, 40, 40, 0.2)
+    background: rgba(0, 0, 0, 0.2);
 }
 
+button.focused,
+#window,
+#language,
 #mode,
-#workspaces button.focused,
-#tags button.focused {
-    /* color: #111111; */
-    /* background-color: #938c6c; */
-    /* border: 1.0px solid rgba(40, 40, 40, 0.65); */
-    border-left: 1.0px solid rgba(0, 0, 0, 0.25);
-    border-right: 1.0px solid rgba(0, 0, 0, 0.25);
-    /* background: rgba(40, 40, 40, 0.15) */
+.timer-on
+{
+    border-left: 1px solid rgba(0, 0, 0, 0.25);
+    border-right: 1px solid rgba(0, 0, 0, 0.25);
     background: rgba(0, 0, 0, 0.10);
-    /* background: #00000011; */
-    /* background-color: #888888; */
 }
 
-#workspaces button.urgent,
-#tags button.urgent {
+button.urgent {
     background-color: #aa8888;
     color: black;
 }
 
-#mode {
-    margin-left: 8px;
+/* no option to completely hide these */
+#tags button:not(.occupied):not(.focused) {
+    opacity: 0.4;
 }
 

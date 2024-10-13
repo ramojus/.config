@@ -11,7 +11,7 @@ return {
             ensure_installed = "all",
             highlight = {
                 enable = true,
-                disable = {},
+                disable = {"git" },
             },
             indent = { enable = true },
         })

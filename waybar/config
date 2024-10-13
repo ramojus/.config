@@ -2,9 +2,10 @@
     "layer": "top",
     "modules-left": [
     	"sway/workspaces",
-    	"sway/mode",
-        "river/tags"
+    	"sway/mode"
+        // "river/tags"
         // "river/window"
+        // "hyprland/workspaces"
     ],
     "modules-center": ["clock"],
     "modules-right": [

@@ -1,7 +1,8 @@
 return {
     'stevearc/oil.nvim',
+    cmd = "Oil",
     keys = function()
-        return require('utils').get_lazy_keys_for('oil.nvim (edit/navigate file list in buffer)', {
+        return require('utils').get_lazy_keys_for('oil', {
             { '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' } },
         })
     end,

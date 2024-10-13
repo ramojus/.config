@@ -7,6 +7,7 @@ bindsym $mod+$alt+c exec $term --o=colors.alpha=$trans -e qalc
 bindsym $mod+$alt+n exec obsidian
 bindsym $mod+space exec ulauncher-toggle
 bindsym $mod+Control+space exec "pkill ulauncher; ulauncher &"
+bindsym $mod+p exec "wl-paste | display &"
 bindsym $mod+z exec sleep 0.2 && systemctl suspend
 
 mode "record" {
@@ -41,3 +42,4 @@ bindsym $mod+Ctrl+t exec ~/.local/bin/imgToText lit
 bindsym $mod+$alt+t exec ~/.local/bin/imgToText eng
 
 # bindsym $mod+Escape exec wlogout
+

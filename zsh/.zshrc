@@ -1,101 +1,52 @@
-# Luke's config for the Zoomer Shell
+typeset -gA ZSH_HIGHLIGHT_STYLES
 
-# Enable colors and change prompt:
-# (cat ~/.cache/wal/sequences &)
-autoload -U colors && colors	# Load colors
+export ZSH_HIGHLIGHT_STYLES[suffix-alias]=fg=blue,underline
+export ZSH_HIGHLIGHT_STYLES[precommand]=fg=blue,underline
+export ZSH_HIGHLIGHT_STYLES[arg0]=fg=blue
 
-# Syntax highlighting
-if ! [ -d ~/.config/zsh/zsh-syntax-highlighting ]; then
-    mkdir -p ~/.config/zsh/zsh-syntax-highlighting
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/zsh/zsh-syntax-highlighting
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Prompt
-PROMPT="%{$fg[cyan]%}%c%{$fg_bold[yellow]%}"
+# bootstrap
+zinit_dir=$HOME/.local/share/zinit/zinit.git
+if ! [ -d $zinit_dir ]; then
+    bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
+    FIRST_RUN=1
+fi
 
-# title
-# precmd () {print -Pn "\e]0;${PWD/$HOME/\~}\a"} # does not work anymore
-show_title() {print -Pn "\e]0;${PWD/$HOME/\~}\a"}
-add-zsh-hook chpwd show_title
-show_title
+### Added by Zinit's installer
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
+fi
 
-autoload -Uz vcs_info
-precmd_vcs_info() { vcs_info }
-precmd_functions+=( precmd_vcs_info )
-setopt prompt_subst
-PROMPT+=\$vcs_info_msg_0_
-zstyle ':vcs_info:git:*' formats ' (%b)%r%f'
-zstyle ':vcs_info:*' enable git
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .config/BraveSoftware'
-export _JAVA_AWT_WM_NONREPARENTING=1 # for java applications to work in wm. (logisim in particular)
-export RUSTC_WRAPPER=sccache
-# export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on' # for font anti-aliasing in java applications
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
 
-PROMPT+="%(?:%{$fg_bold[green]%} > %{$reset_color%}:%{$fg_bold[red]%} > %{$reset_color%})"
-
-# Save current working directory on every cd (osc7 support)
-source ~/.config/shell/osc7
-autoload -Uz add-zsh-hook
-add-zsh-hook -Uz chpwd osc7_cwd
+### End of Zinit's installer chunk
 
 # Case insensitive cd
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
-autoload -Uz compinit && compinit
-
-setopt autocd		# Automatically cd into typed directory.
-stty stop undef		# Disable ctrl-s to freeze terminal.
-
-# History in cache directory:
-HISTSIZE=10000
-SAVEHIST=10000
-HISTFILE=~/.cache/zsh/history
-if ! [ -d ~/.cache/zsh/ ]; then
-    mkdir -p ~/.cache/zsh
-fi
-
-path+=("$HOME/.local/bin")
-path+=("$HOME/.local/bin/scripts")
-path+=('/home/ramojus/.local/bin/lsp')
-path+=('/home/ramojus/.local/bin/statusbar')
-path+=('/home/ramojus/.emacs.d/bin')
-path+=('/home/ramojus/.local/share/go/bin')
-path+=('/home/ramojus/.cargo/bin')
-
-export path
-
-# source '/home/ramojus/.ghcup/env'
-# source '/home/ramojus/.local/share/cargo/env'
-# source '~/.nix-profile/etc/profile.d/hm-session-vars.sh'
-
-distro=$(cat /etc/os-release | grep ^ID= | cut -d\" -f2 | cut -d= -f2)
-[[ $distro != "fedora" ]] && alias tmux="~/./appimages/tmux.appimage"
-
-alias ls='ls --color=always'
-alias tp='trash put'
-alias git-bare='git --git-dir=./.git-bare/ --work-tree=.'
-alias cdnotes='cd ~/site-notes/content/studijos/7'
-# alias signal='flatpak run org.signal.Signal --enable-features=UseOzonePlatform --ozone-platform=wayland'
-
-# Load aliases and shortcuts if existent.
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc"
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc"
-
-# Basic auto/tab complete:
-autoload -U compinit
-zstyle ':completion:*' menu select
-zmodload zsh/complist
-compinit
-_comp_options+=(globdots)		# Include hidden files.
 
 # vi mode
-bindkey -v
-export KEYTIMEOUT=1
-
-bindkey '^r' history-incremental-search-backward
-
+zmodload zsh/complist
+zstyle ':completion:*' menu select
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
@@ -125,37 +76,61 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
-# switch directories with nnn
-n () {
-    if [ -n $NNNLVL ] && [ "${NNNLVL:-0}" -ge 1 ]; then
-        echo "nnn is already running"
-        return
-    fi
+# zinit wait lucid light-mode for \
+#   atinit"zicompinit; zicdreplay" \
+#       zdharma-continuum/fast-syntax-highlighting \
+#   blockf atpull'zinit creinstall -q .' \
+#       zsh-users/zsh-completions
+zinit wait lucid light-mode for \
+      zsh-users/zsh-completions \
+      zdharma-continuum/fast-syntax-highlighting
+      # zsh-users/zsh-syntax-highlighting
 
-    export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+# zinit ice depth=1; zinit light romkatv/powerlevel10k
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+# [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
-    nnn "$@"
+if [ $FIRST_RUN ]; then
+    zinit wait'2' lucid atinit'fast-theme ~/.config/zsh/highlighting-overlay' nocd for /dev/null
+fi
 
-    if [ -f "$NNN_TMPFILE" ]; then
-            . "$NNN_TMPFILE"
-            rm -f "$NNN_TMPFILE" > /dev/null
-    fi
-}
+# Custom prompt (man zshmisc)
+autoload -Uz vcs_info
+setopt prompt_subst
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:git:*' formats ' %b'
 
-# shell integration for foot terminal (jumping between commands with ctrl+shift+z/x)
-precmd() {
-    print -Pn "\e]133;A\e\\"
-}
+local prompt_path="%F{cyan}%5~%f"
+local prompt_git="%F{yellow}\$vcs_info_msg_0_%f"
+local prompt_jobs="%(1j:%F{white}%j%f:)"
+# local prompt_status="%(?:%F{green}%B❯%b %f:%F{red}%B❯%b %f)"
+local prompt_status="%(?:%F{green}%B>%b %f:%F{red}%B>%b %f)"
 
-export FZF_DEFAULT_OPTS="--height=40% --layout=reverse"
-bindkey -s '^o' 'cd "$(dirname "$(fzf)")"\n'
-bindkey -s '^f' 'file=$(fzf) && cd "$(dirname "$file")" && nvim "$(basename "$file")" \n'
+PROMPT="$prompt_path$prompt_git $prompt_jobs$prompt_status"
 
-bindkey '^[[P' delete-char
 
-# Edit line in vim with ctrl-e:
-autoload edit-command-line; zle -N edit-command-line
-bindkey '^e' edit-command-line
+bindkey '^r' history-incremental-search-backward
 
-# opam configuration
-[[ ! -r /home/ramojus/.opam/opam-init/init.zsh ]] || source /home/ramojus/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+show_title() {print -Pn "\e]0;${PWD/$HOME/\~}\a"}
+add-zsh-hook chpwd show_title
+show_title
+
+# Save current working directory on every cd (osc7 support)
+source ~/.config/shell/osc7
+add-zsh-hook -Uz chpwd osc7_cwd
+
+path+=("$HOME/.local/bin")
+path+=("$HOME/.local/bin/scripts")
+path+=('/home/ramojus/.local/bin/lsp')
+path+=('/home/ramojus/.local/bin/statusbar')
+path+=('/home/ramojus/.emacs.d/bin')
+path+=('/home/ramojus/.local/share/go/bin')
+path+=('/home/ramojus/.cargo/bin')
+
+export path
+
+alias ls='ls --color=always'
+alias tp='trash put'
+alias git-bare='git --git-dir=./.git-bare/ --work-tree=.'

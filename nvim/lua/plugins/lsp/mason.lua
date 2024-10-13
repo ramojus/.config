@@ -1,10 +1,9 @@
 local ensure_installed = {
-    "clangd",
+    -- "clangd",
     "cmake",
     "html",
     -- "lua_ls",
     "pyright",
-    "rust_analyzer",
     "texlab",
     "eslint",
     "julials",
@@ -16,7 +15,12 @@ local installed_by_nix = {
     'ocamllsp',
     'lua_ls',
     -- 'typst_lsp',
-    'tsserver'
+    'ts_ls',
+    "pylsp",
+    "phpactor",
+    "rust_analyzer",
+    "tinymist",
+    "clangd",
 }
 
 local only_on_nix = {
@@ -34,7 +38,7 @@ require 'mason'.setup {
 }
 
 require 'mason-lspconfig'.setup {
-    ensure_installed = ensure_installed,
+    ensure_installed = {},
     automatic_installation = false, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
 }
 
@@ -66,7 +70,11 @@ for _, server in pairs(vim.tbl_extend('force', ensure_installed, installed_by_ni
         opts = vim.tbl_deep_extend("force", require'plugins.lsp.settings.rust', opts)
     end
 
-    if server == "typst_lsp" then
+    -- if server == "typst_lsp" then
+    --     opts = vim.tbl_deep_extend("force", require'plugins.lsp.settings.typst', opts)
+    -- end
+    --
+    if server == "tinymist" then
         opts = vim.tbl_deep_extend("force", require'plugins.lsp.settings.typst', opts)
     end
 

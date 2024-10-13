@@ -6,13 +6,12 @@ local function bind_undo_breakpoints(breakpoints)
     end
 end
 
-
 --                  Resizing windows
 ---------------------------------------------------------
 map('n', '<M-=>',       ':vertical resize +5<CR>')
 map('n', '<M-->',       ':vertical resize -5<CR>')
-map('n', '<M-+>',       ':resize +2<CR>')
-map('n', '<M-_>',       ':resize -2<CR>')
+map('n', '<M-S-=>',       ':resize +2<CR>')
+map('n', '<M-S-->',       ':resize -2<CR>')
 
 
 --                  Manipulating lines
@@ -63,13 +62,6 @@ map('n', '<leader>u',   ':UndotreeShow<CR>')
 map('n', "k",     [[(v:count > 5 ? "m'" . v:count : "") . 'k']], 'if the count is big enough, register to jump list', { expr = true })
 map('n', "j",     [[(v:count > 5 ? "m'" . v:count : "") . 'j']], 'if the count is big enough, register to jump list', { expr = true })
 
-
---                  Telescope
----------------------------------------------------------
-
---                  Harpoon
----------------------------------------------------------
-
 --                  Yanking
 ---------------------------------------------------------
 map('n', '<leader>d',   '"+d')
@@ -90,11 +82,6 @@ map('n', '<leader>sv',  [[:lua require('config.utils').reload_config()<CR>]])
 --                  Terminal
 ---------------------------------------------------------
 map('t', '<C-n>',       [[<C-\><C-n>]])
-
---                  Plugins
----------------------------------------------------------
-map('n', '<leader>sp', ':PackerSync<CR>')
-map('n', '<leader>m', ':MarkdownPreview<CR>')
 
 --                  Other good stuff
 ---------------------------------------------------------

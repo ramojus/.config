@@ -22,3 +22,5 @@ zsh/zsh-syntax-highlighting/
 !darkman/**
 !.gitignore
 !git
+*.zcompdump*
+nvim/lazy-lock.json

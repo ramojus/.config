@@ -1,4 +1,4 @@
-output * bg ~/wallpapers/wallpaper.jpg fill
+output * bg ~/wallpapers/wallpaper.jpg fill "#1a1a1a"
 
 # corner_radius 2
 # shadows on

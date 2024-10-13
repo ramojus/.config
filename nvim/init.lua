@@ -28,6 +28,9 @@ require("lazy").setup("plugins", {
         enabled = true,
         notify = false,
     },
+    ui = {
+        backdrop = 60
+    }
 })
 
-vim.cmd.colorscheme('mellifluous')
+-- vim.cmd.colorscheme('mellifluous')

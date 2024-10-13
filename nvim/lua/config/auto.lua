@@ -66,7 +66,16 @@ create_autocmd(
     }
 )
 
--- Use internal formatting for bindings like gq.
+create_autocmd(
+    "Hmmm",
+    "FileType",
+    {
+        pattern = "no-neck-pain",
+        command = "set winhighlight=Normal:LineNr,WinSeparator:LineNr",
+    }
+)
+
+-- Use internal formatting for bindings like gq.
 vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(args)
         vim.bo[args.buf].formatexpr = nil

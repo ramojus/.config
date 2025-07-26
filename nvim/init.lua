@@ -29,7 +29,8 @@ require("lazy").setup("plugins", {
         notify = false,
     },
     ui = {
-        backdrop = 60
+        backdrop = 60,
+        border = "double",
     }
 })
 

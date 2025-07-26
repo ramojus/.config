@@ -33,12 +33,13 @@ function utils.get_map_func_for(plug_name, buffer)
         end
 
         local opts = extra_opts or {}
-        if desc then
-            if plug_name then
-                opts.desc = plug_name .. ': ' .. desc
-            else
-                opts.desc = desc
+        if plug_name then
+            opts.desc = plug_name
+            if desc then
+                opts.desc = opts.desc .. ': ' .. desc
             end
+        elseif desc then
+            opts.desc = desc
         end
         if buffer then
             opts.buffer = buffer

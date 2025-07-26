@@ -1,8 +1,10 @@
 return {
     -- 'ramojus/mellifluous.nvim',
-    dir = '~/dev/mellifluous.nvim',
+    -- dir = '~/dev/mell-worktrees/winbarnc-legibility',
     -- dir = '~/dev/mell-clones/windowsrefund-mellifluous',
     -- dir = '~/dev/mell-clones/antoineco-mellifluous',
+    -- dir = '~/dev/mell-clones/strash-mellifluous',
+    dir = '~/dev/mellifluous.nvim',
     lazy = false,
     -- version = "v0.*", -- uncomment for stable config (some features might be missed if/when v2 comes out)
     priority = 1000,
@@ -97,10 +99,39 @@ return {
         --         -- end,
         --     }
         -- })
+        -- mellifluous-configuration-colorsets
+        --
+        require("mellifluous").setup({
+            colorset = "mellifluous",
+            transparent_background = {
+                cursor_line = false,
+            },
+            color_overrides = {
+                dark = {
+                    colors = function(colors)
+                        return {
+                            bg2 = colors.bg:lightened(5),
+                            bg3 = colors.bg:lightened(8),
+                            bg4 = colors.bg:lightened(10),
+                            bg5 = colors.bg:lightened(12),
+                        }
+                    end,
+                }
+            },
 
-        require('mellifluous').setup({
-            transparent_background = { enabled = false }
+            custom_colorsets = {
+                winter = require("plugins.colorschemes.mell-winter"),
+                winterrry = require("plugins.colorschemes.mell-winter"),
+            },
+            -- plugins = {
+            --     fzf = {
+            --         -- enabled = true,
+            --         highlights = true,
+            --         setup = true,
+            --     }
+            -- }
         })
+
         vim.cmd('colorscheme mellifluous')
     end,
     }

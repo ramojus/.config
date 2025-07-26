@@ -3,21 +3,21 @@ return {
     dependencies = {
         'nvim-telescope/telescope-ui-select.nvim',
     },
-    keys = function()
-        return require('utils').get_lazy_keys_for('telescope', {
-            { '<leader>sf', require('telescope.builtin').find_files, desc = 'files' },
-            { '<leader>sF', ':Telescope find_files cwd=~ hidden=1<cr>', desc = 'files from home' },
-            { '<leader>sc', ':Telescope find_files cwd=~/.config<cr>', desc = 'files from .config' },
-            { '<leader>sg', require('telescope.builtin').live_grep, desc = 'grep in pwd' },
-            { '<leader>sb', require('telescope.builtin').buffers, desc = 'buffers' },
-            { '<leader>sh', require('telescope.builtin').help_tags, desc = 'help tags' },
-            { '<leader>sH', require('telescope.builtin').highlights, desc = 'highlights' },
-            { '<leader>sp', require('telescope.builtin').planets, desc = 'planets' },
-            { '<leader>sm', require('telescope.builtin').man_pages, desc = 'man pages' },
-            { '<leader>sr', require('telescope.builtin').reloader, desc = 'reloader' },
-            { '<leader>sk', require('telescope.builtin').keymaps, desc = 'keymaps' },
-        })
-    end,
+    -- keys = function()
+    --     return require('utils').get_lazy_keys_for('telescope', {
+    --         { '<leader>sf', require('telescope.builtin').find_files, desc = 'files' },
+    --         { '<leader>sF', ':Telescope find_files cwd=~ hidden=1<cr>', desc = 'files from home' },
+    --         { '<leader>sc', ':Telescope find_files cwd=~/.config<cr>', desc = 'files from .config' },
+    --         { '<leader>sg', require('telescope.builtin').live_grep, desc = 'grep in pwd' },
+    --         { '<leader>sb', require('telescope.builtin').buffers, desc = 'buffers' },
+    --         { '<leader>sh', require('telescope.builtin').help_tags, desc = 'help tags' },
+    --         { '<leader>sH', require('telescope.builtin').highlights, desc = 'highlights' },
+    --         { '<leader>sp', require('telescope.builtin').planets, desc = 'planets' },
+    --         { '<leader>sm', require('telescope.builtin').man_pages, desc = 'man pages' },
+    --         { '<leader>sr', require('telescope.builtin').reloader, desc = 'reloader' },
+    --         { '<leader>sk', require('telescope.builtin').keymaps, desc = 'keymaps' },
+    --     })
+    -- end,
     cmd = 'Telescope',
 
     setup = function()

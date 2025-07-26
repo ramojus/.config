@@ -67,7 +67,7 @@ create_autocmd(
 )
 
 create_autocmd(
-    "Hmmm",
+    "no-neck-pain",
     "FileType",
     {
         pattern = "no-neck-pain",

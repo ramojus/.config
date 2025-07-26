@@ -1,4 +1,4 @@
-local map = require('utils').get_map_func_for()
+local map = require('utils').get_map_func_for("General")
 
 local function bind_undo_breakpoints(breakpoints)
     for b in breakpoints:gmatch"." do
@@ -8,11 +8,23 @@ end
 
 --                  Resizing windows
 ---------------------------------------------------------
-map('n', '<M-=>',       ':vertical resize +5<CR>')
-map('n', '<M-->',       ':vertical resize -5<CR>')
-map('n', '<M-S-=>',       ':resize +2<CR>')
-map('n', '<M-S-->',       ':resize -2<CR>')
+map('n', '<M-=>', function()
+        if vim.g.is_no_neck_pain_enabled then
+            vim.cmd('NoNeckPainWidthUp')
+        else
+            vim.cmd('vertical resize +5')
+        end
+    end, 'increase window size vertically')
+map('n', '<M-->', function()
+        if vim.g.is_no_neck_pain_enabled then
+            vim.cmd('NoNeckPainWidthDown')
+        else
+            vim.cmd('vertical resize -5')
+        end
+    end, 'decrease window size vertically')
 
+map('n', '<M-S-=>',     ':resize +2<CR>', 'increase window size horizontally')
+map('n', '<M-S-->',     ':resize -2<CR>', 'decrease window size horizontally')
 
 --                  Manipulating lines
 ---------------------------------------------------------
@@ -23,7 +35,6 @@ map('v', 'J',           [[:m '>+1<CR>gv=gv]])
 map('v', 'K',           [[:m '<-2<CR>gv=gv]])
 map('n', '<M-J>',       [[:m .+1<CR>]])
 map('n', '<M-K>',       [[:m .-2<CR>]])
-map('n', 'tt',          [[:setlocal shiftwidth=2 tabstop=2<CR>]])
 
 --                  Centered search
 ---------------------------------------------------------
@@ -76,7 +87,7 @@ map('n', '<leader>Y',   '"+y$')
 --                  Reloading
 ---------------------------------------------------------
 map('n', '<leader>so',  ':luafile %<CR>:lua vim.notify("file sourced")<CR>')
-map('n', '<leader>sv',  [[:lua require('config.utils').reload_config()<CR>]])
+-- map('n', '<leader>sv',  [[:lua require('utils').reload_config()<CR>]])
 
 
 --                  Terminal

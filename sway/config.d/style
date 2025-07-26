@@ -25,6 +25,8 @@ for_window [class="obsidian"] border normal 1
 for_window [app_id="ulauncher"] border none
 for_window [app_id="brave-browser"] border none
 for_window [app_id="firefox"] border none
+for_window [app_id="zen-twilight"] border none
+for_window [app_id="zen-twilight"] floating enable
 # for_window [app_id="firefox"] {
 #     floating enable
 #     border none

@@ -2,8 +2,8 @@ bindsym $mod+shift+Return exec $term
 bindsym $mod+Return exec $term --o=colors.alpha=$term-trans
 bindsym $mod+alt+w exec $browser
 bindsym $mod+$alt+i exec echo "💩\n👍" | wofi -d | wl-copy
-bindsym $mod+$alt+f exec $term --o=colors.alpha=$trans -e nnn
-bindsym $mod+$alt+c exec $term --o=colors.alpha=$trans -e qalc
+bindsym $mod+$alt+f exec $term --o=colors.alpha=$term-trans -e nnn
+bindsym $mod+$alt+c exec $term --o=colors.alpha=$term-trans -e qalc
 bindsym $mod+$alt+n exec obsidian
 bindsym $mod+space exec ulauncher-toggle
 bindsym $mod+Control+space exec "pkill ulauncher; ulauncher &"
